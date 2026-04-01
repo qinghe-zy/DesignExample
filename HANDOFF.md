@@ -67,6 +67,7 @@ Git was initialized during this run.
   - `53f91b4` chore: initialize template factory governance
   - `15da901` feat: add runnable base admin baseline
   - `f41d3e6` feat: scaffold initial seed template projects
+  - `ed5cd5f` docs: finalize unattended run handoff
 
 Push was not attempted because no git remote is configured in this repository.
 
