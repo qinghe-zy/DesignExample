@@ -1,4 +1,4 @@
-﻿# Module Summary
+# Module Summary
 
 ## Recommended Current Modules
 

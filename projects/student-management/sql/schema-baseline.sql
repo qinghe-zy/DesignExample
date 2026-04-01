@@ -1,4 +1,4 @@
-﻿-- Schema baseline for student-management
+-- Schema baseline for student-management
 -- System tables are inherited conceptually from the base admin template.
 -- Add these business tables on top of the shared baseline when implementation begins.
 

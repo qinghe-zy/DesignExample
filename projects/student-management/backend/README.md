@@ -1,6 +1,6 @@
-﻿# Backend Seed Scaffold
+# Backend Seed Scaffold
 
-This seed should derive backend structure from projects/00-base-admin/backend.
+This seed should derive backend structure from projects/00-student-management/backend.
 
 ## Priority Modules
 
@@ -17,4 +17,5 @@ This seed should derive backend structure from projects/00-base-admin/backend.
 - keep JWT + RBAC from the base admin baseline
 - add business tables and services incrementally
 - avoid topic-specific shortcuts inside shared system modules
+
 

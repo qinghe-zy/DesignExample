@@ -1,4 +1,4 @@
-﻿# Frontend Seed Scaffold
+# Frontend Seed Scaffold
 
 This seed should derive frontend structure from projects/00-base-admin/frontend.
 

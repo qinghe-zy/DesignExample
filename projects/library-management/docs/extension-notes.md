@@ -1,4 +1,4 @@
-﻿# Extension Notes
+# Extension Notes
 
 ## Likely Extension Points
 

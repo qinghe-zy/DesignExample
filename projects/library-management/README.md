@@ -1,41 +1,46 @@
-﻿# library-management
+# library-management
 
-Library Management is an initial seed project in the Projectexample template factory.
+Library Management is a derived project built on top of the shared Projectexample admin baseline.
 
-## Current Seed Status
+## Current Scope
 
-This project currently inherits the shared base approach rather than declaring a separate architecture.
+- shared auth, system user/role/menu, and dashboard baseline inherited from 00-base-admin
+- project-specific business focus: book catalog, reader management, borrow/return flow
+- MySQL-oriented SQL init under ./sql/mysql/init.sql and local H2 dev startup via backend resources
 
-Inheritance path:
+## Current Implementation Depth
 
-- ../../blueprints/base-admin-template
-- ../../shared/conventions
-- ../../shared/specs
-- ../../shared/ui-patterns
-- ../../projects/00-base-admin for the current runnable reference implementation
+Representative business modules currently implemented: Book Catalog, Reader Management, Borrow & Return.
 
-## Current Module Focus
+## Startup Guide
 
-- books
-- categories
-- shelves
-- borrow records
-- overdue reminders
+### Backend
 
-## Reuse Notes
+`powershell
+cd D:\Projectexample\projects\library-management\backend
+mvn -q clean -DskipTests package
+mvn spring-boot:run
+` 
 
-- Reuse potential: High
-- Recommended build priority: Highest
-- Shared baseline modules expected from the base admin starter: auth, dashboard, user, role, menu, CRUD shell
+### Frontend
 
-## Current Seed Deliverables
+`powershell
+cd D:\Projectexample\projects\library-management\frontend
+npm.cmd install
+npm.cmd run dev
+` 
 
-- backend/ and frontend/ project shells
-- docs/module-summary.md
-- docs/extension-notes.md
-- sql/schema-baseline.sql
+Default backend URL: http://localhost:8082
+Default frontend URL: http://localhost:5182
 
-## Near-Term Next Step
+## Validation Commands
 
-Start by deriving the system baseline from 00-base-admin, then add the first representative module with the smallest reusable business slice.
+- mvn -q clean -DskipTests package
+- npm.cmd install
+- npm.cmd run build
 
+## Extension Direction
+
+- keep auth/RBAC aligned with the shared base
+- add richer statistics, workflow logic, and reporting after the current core modules are accepted
+- extract repeated business patterns back into shared guidance when they stabilize

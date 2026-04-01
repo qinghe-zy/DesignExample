@@ -1,5 +1,5 @@
-﻿-- Schema baseline for library-management
--- System tables are inherited conceptually from the base admin template.
+-- Schema baseline for library-management
+-- System tables are inherited conceptually from the library management template.
 -- Add these business tables on top of the shared baseline when implementation begins.
 
 CREATE TABLE biz_book (

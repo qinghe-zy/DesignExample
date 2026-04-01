@@ -1,4 +1,4 @@
-﻿# Backend Seed Scaffold
+# Backend Seed Scaffold
 
 This seed should derive backend structure from projects/00-base-admin/backend.
 
@@ -13,7 +13,7 @@ This seed should derive backend structure from projects/00-base-admin/backend.
 ## Current Recommendation
 
 - keep the same controller/service/mapper/entity/dto/vo layering
-- keep JWT + RBAC from the base admin baseline
+- keep JWT + RBAC from the library management baseline
 - add business tables and services incrementally
 - avoid topic-specific shortcuts inside shared system modules
 

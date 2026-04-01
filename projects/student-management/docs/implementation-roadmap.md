@@ -1,4 +1,4 @@
-﻿# Implementation Roadmap
+# Implementation Roadmap
 
 ## Why This Seed Is Higher Priority
 

@@ -1,4 +1,4 @@
-﻿# Module Summary
+# Module Summary
 
 ## Recommended Current Modules
 
@@ -10,7 +10,7 @@
 
 ## Inheritance From Shared Base
 
-- inherit auth and RBAC from the base admin template
+- inherit auth and RBAC from the exam system template
 - inherit dashboard shell and system baseline modules
 - reuse the current CRUD page conventions
 - keep topic-specific naming inside project-local business modules

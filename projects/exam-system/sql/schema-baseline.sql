@@ -1,5 +1,5 @@
-﻿-- Schema baseline for exam-system
--- System tables are inherited conceptually from the base admin template.
+-- Schema baseline for exam-system
+-- System tables are inherited conceptually from the exam system template.
 -- Add these business tables on top of the shared baseline when implementation begins.
 
 CREATE TABLE biz_question_bank (
