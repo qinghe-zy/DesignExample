@@ -23,3 +23,26 @@
 ### In Progress
 
 - remote configuration and optional push by a later operator
+
+## 2026-04-01 Continuation
+
+### Added
+
+- derived business modules for `student-management`
+- derived business modules for `library-management`
+- derived business modules for `exam-system`
+- backend/frontend representative module scaffolds for the remaining seven seed projects
+- startup guides and inheritance notes for the remaining seven seed projects
+- `shared/specs/derived-project-promotion-checklist.md`
+
+### Validation
+
+- top three seed backends built successfully with `mvn -q clean -DskipTests package`
+- top three seed backend test contexts passed with `mvn -q test`
+- top three seed frontends installed successfully with `npm.cmd install`
+- top three seed frontends built successfully with `npm.cmd run build`
+
+### Notes
+
+- top three seed frontends still emit large bundle-size warnings during Vite production builds
+- the remaining seven seeds are materially advanced but intentionally lighter than the top three

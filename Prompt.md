@@ -2,7 +2,7 @@
 
 ## Stable Mission
 
-Turn `Projectexample` into a durable academic project template factory for course-design and graduation-project systems.
+Continue evolving `Projectexample` from a factory foundation into a deeper academic project template platform with materially advanced seed projects.
 
 The repository should support:
 
@@ -15,20 +15,16 @@ The repository should support:
 - future-friendly documentation
 - low-rework generation of new project templates
 
-## Success Criteria
+## Continuation Success Criteria
 
-The current unattended run is considered successful if it leaves behind, at minimum:
+The current continuation run is considered successful if it leaves behind, at minimum:
 
-- root governance and durable memory files
-- coherent workspace structure
-- future-friendly architecture and workflow docs
-- shared conventions and reusable baseline assets
-- a documented base blueprint
-- a runnable `projects/00-base-admin`
-- an initial template catalog
-- consistent seed template scaffolds beyond the base project when feasible
-- verification notes, decisions, changelog, and operator handoff
-- a clean reviewable git history
+- refreshed repo memory files aligned with continuation work
+- materially deeper implementations for `student-management`, `library-management`, and `exam-system`
+- stronger backend/frontend/module scaffolds for the remaining seven fixed seed projects
+- validation notes for every major project changed in this run
+- updated decisions, changelog, and handoff that clearly distinguish runnable work from partial work
+- a clean reviewable git history for this continuation phase
 
 ## Constraints
 
@@ -46,7 +42,9 @@ The current unattended run is considered successful if it leaves behind, at mini
 
 ## Current Scope Priorities
 
-1. stabilize the factory workspace
-2. finish `projects/00-base-admin`
-3. scaffold initial seed templates consistently
-4. leave clear handoff guidance for future expansion
+1. preserve the existing factory baseline and `00-base-admin`
+2. deepen `projects/student-management`
+3. deepen `projects/library-management`
+4. deepen `projects/exam-system`
+5. materially advance the remaining seven fixed seed projects
+6. extract shared improvements only where they clearly pay off

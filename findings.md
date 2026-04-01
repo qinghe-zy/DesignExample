@@ -35,3 +35,9 @@
 
 ## Visual/Browser Findings
 - None in this run so far.
+
+## Continuation Findings
+- `00-base-admin` remained the only runnable project at the start of the continuation run.
+- Deriving the top three seeds from the validated base project preserved auth/system consistency and reduced implementation risk.
+- PowerShell bulk writes in this environment default to UTF-8 with BOM unless explicitly disabled, which breaks Java compilation for derived projects.
+- The remaining seven seeds can be materially advanced with representative backend/frontend module files plus startup and inheritance notes without pretending they are already runnable.

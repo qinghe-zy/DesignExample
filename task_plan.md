@@ -1,62 +1,69 @@
-# Task Plan: Root Template Factory Initialization
+# Task Plan: Continuation Seed Project Deepening
 
 ## Goal
-Initialize `Projectexample` as a future-friendly academic project template factory by creating root governance/docs, reusable shared assets and blueprints, and one runnable base admin template under `projects/00-base-admin`.
+Continue `Projectexample` from factory bootstrap into deeper seed implementation by materially advancing the top three projects and strengthening the remaining seven beyond empty scaffolds.
 
 ## Current Phase
-Phase 1
+Phase 6
 
 ## Phases
 
-### Phase 1: Requirements & Discovery
-- [x] Understand user intent
-- [x] Identify constraints and requirements
-- [x] Document findings in findings.md
+### Phase 1: Continuation Baseline Verification
+- [x] Re-read governance, memory, and workflow files
+- [x] Verify git branch and existing project set
+- [x] Refresh Prompt.md and Plan.md for the continuation mission
 - **Status:** complete
 
-### Phase 2: Planning & Structure
-- [ ] Define technical approach
-- [ ] Create root workspace structure
-- [ ] Document decisions with rationale
+### Phase 2: Student Management Deepening
+- [x] Derive student-management from 00-base-admin
+- [x] Add concrete student business modules
+- [x] Validate backend and frontend builds
+- **Status:** complete
+
+### Phase 3: Library Management Deepening
+- [x] Derive library-management from 00-base-admin
+- [x] Add concrete library business modules
+- [x] Validate backend and frontend builds
+- **Status:** complete
+
+### Phase 4: Exam System Deepening
+- [x] Derive exam-system from 00-base-admin
+- [x] Add concrete exam business modules
+- [x] Validate backend and frontend builds
+- **Status:** complete
+
+### Phase 5: Remaining Seven Seed Strengthening
+- [x] Add backend/frontend representative module scaffolds
+- [x] Add startup and inheritance notes
+- [x] Preserve consistency with the shared base
+- **Status:** complete
+
+### Phase 6: Documentation, Validation Summary, And Git
+- [ ] Sync repo memory files
+- [ ] Create continuation milestone commits
+- [ ] Leave clean handoff state
 - **Status:** in_progress
 
-### Phase 3: Governance & Shared Foundation
-- [ ] Author root docs and template catalog
-- [ ] Create shared engineering assets
-- [ ] Create reusable base blueprint
-- **Status:** pending
-
-### Phase 4: Runnable Base Template
-- [ ] Scaffold backend baseline
-- [ ] Scaffold frontend baseline
-- [ ] Provide SQL init and startup guides
-- **Status:** pending
-
-### Phase 5: Verification & Delivery
-- [ ] Verify file structure and key commands
-- [ ] Update progress summary
-- [ ] Deliver recommendations and open extension space
-- **Status:** pending
-
 ## Key Questions
-1. What minimal baseline proves the factory architecture without overbuilding?
-2. Which rules belong in shared docs/assets versus the first concrete project?
-3. How should the workspace leave room for future blueprints and business template families?
+1. How far can the top three seeds be pushed without fragmenting the shared architecture?
+2. What is the lightest remaining-project scaffold that still counts as materially advanced?
+3. Which repeated patterns should stay local for now versus move into shared assets later?
 
 ## Decisions Made
 | Decision | Rationale |
 |----------|-----------|
-| Use `docs/`, `shared/`, `blueprints/`, `projects/`, and `scripts/` as the initial top-level factory layout | Matches repository standards while leaving clear growth paths for future assets |
-| Build one Spring Boot backend and one Vue 3 frontend as a minimal runnable base admin | Satisfies the required proof-of-baseline without prematurely generating business templates |
-| Keep auth/RBAC and CRUD as skeleton-ready baseline modules rather than deep implementations | Preserves reuse and keeps the initial template maintainable for future specialization |
+| Deepen the top three by deriving them directly from `00-base-admin` | Preserves auth/system consistency while accelerating meaningful implementation |
+| Keep the remaining seven lighter but concrete | Protects quality while still avoiding placeholder-only projects |
+| Validate the top three with backend package/test and frontend install/build | Gives the continuation run honest evidence of implementation depth |
 
 ## Errors Encountered
 | Error | Attempt | Resolution |
 |-------|---------|------------|
-| `git status` failed because the folder is not a git repository | 1 | Recorded as environment state; continue without git-dependent steps |
-| `npm -v` via PowerShell policy blocked script execution | 1 | Switched to `npm.cmd`, which works on this Windows environment |
+| Bulk PowerShell replacement timed out and touched unsupported files | 1 | Switched to smaller project-by-project normalization passes |
+| PowerShell file writes introduced UTF-8 BOM markers that broke `javac` | 1 | Rewrote affected source files with UTF-8 without BOM and reran clean builds |
+| Derived backend package command failed during Spring Boot repackage due stale target state | 1 | Switched from incremental package to `mvn clean package` for derived backends |
 
 ## Notes
-- Keep wording open-ended; do not imply the workspace is complete.
-- Prefer reusable conventions and documented extension points over heavy abstractions.
-- Avoid business-specific naming in shared assets and the base admin template.
+- Keep the fixed initial seed folder names exactly as requested.
+- Preserve `00-base-admin` as the shared runnable reference while deepening derivatives.
+- Treat the remaining seven as real next-step projects, not decorative placeholders.

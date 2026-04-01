@@ -2,94 +2,89 @@
 
 ## Current Phase
 
-Phase 6 complete: validation, documentation sync, and milestone git history established
+Continuation Phase 6 in progress: documentation sync, final git staging, and continuation milestone commits
 
-## Milestones
+## Continuation Milestones
 
-### Milestone 1: Inspect And Durable Memory
+### Milestone 1: Inspect Existing State And Refresh Memory
 
-- inspect root structure and environment
-- confirm git status
-- create persistent operator memory files
-- record assumptions and tooling findings
-
-Acceptance criteria:
-
-- root memory files exist
-- Documentation.md includes environment findings
-- Plan.md reflects current phase and validation approach
-
-### Milestone 2: Governance And Root Structure
-
-- confirm or improve root governance files
-- create root workspace folders for docs, scripts, shared, blueprints, projects
-- add `.gitignore`
+- verify current repo state and project list
+- read existing memory and rule files
+- update continuation goals in repo memory files
 
 Acceptance criteria:
 
-- root structure is coherent and future-friendly
-- README and root standards are aligned
+- continuation assumptions are verified against the repo
+- Prompt.md and Plan.md reflect the continuation mission
 
-### Milestone 3: Factory Docs And Shared Assets
+### Milestone 2: Student Management Deepening
 
-- create architecture/workflow/catalog docs
-- create shared conventions and notes
-- create blueprint documentation
-
-Acceptance criteria:
-
-- required docs exist
-- shared assets cover naming, response, auth/RBAC, CRUD, structure, and module notes
-
-### Milestone 4: Runnable Base Project
-
-- finish backend scaffold
-- finish frontend scaffold
-- provide SQL initialization and startup docs
-- verify key commands
+- [x] create concrete backend/frontend code for student-management
+- [x] add 2-4 representative business modules
+- [x] provide SQL init, startup guide, and validation commands
 
 Acceptance criteria:
 
-- backend builds
-- frontend builds
-- login/dashboard/system/CRUD flows are implemented at baseline level
+- project is materially beyond documentation-only scaffolding
+- best-effort build validation is attempted and documented
 
-### Milestone 5: Seed Template Scaffolds
+### Milestone 3: Library Management Deepening
 
-- create consistent project seeds for the catalog families
-- add README, SQL/schema baseline, module summary, and extension notes for each
+- [x] create concrete backend/frontend code for library-management
+- [x] add representative catalog/reader/borrow modules
+- [x] provide SQL init, startup guide, and validation commands
 
 Acceptance criteria:
 
-- seed projects exist with consistent structure
-- inheritance from shared base is documented
+- project is materially beyond documentation-only scaffolding
+- best-effort build validation is attempted and documented
 
-### Milestone 6: Validation, Git, And Handoff
+### Milestone 4: Exam System Deepening
 
-- run validation commands where feasible
-- repair failures if found
-- initialize git and create milestone commits
-- leave HANDOFF.md ready for human acceptance
+- [x] create concrete backend/frontend code for exam-system
+- [x] add representative question/paper/result modules
+- [x] provide SQL init, startup guide, and validation commands
+
+Acceptance criteria:
+
+- project is materially beyond documentation-only scaffolding
+- best-effort build validation is attempted and documented
+
+### Milestone 5: Strengthen Remaining Seven Seeds
+
+- [x] add backend/frontend structure and at least one representative business module scaffold to each remaining seed
+- [x] add startup guidance and inheritance notes where still missing
+
+Acceptance criteria:
+
+- every fixed seed project has concrete module/file structure beyond empty shells
+- docs and SQL baselines remain consistent with the shared base
+
+### Milestone 6: Validation, Shared Refinement, Git, And Handoff
+
+- [x] validate changed projects
+- [x] extract any clearly repeated shared improvements
+- [ ] create milestone commits and update handoff
 
 Acceptance criteria:
 
 - validation results documented
 - git state is reviewable
-- final handoff clearly describes runnable vs scaffolded work
+- final handoff clearly describes runnable vs partial work across all changed projects
 
 ## Validation Commands
 
 - `git status --short --branch`
+- `Get-ChildItem projects | Select-Object -ExpandProperty Name`
 - `mvn -q -DskipTests package`
 - `mvn -q test`
 - `npm.cmd install`
 - `npm.cmd run build`
 - `Get-ChildItem -Recurse`
 
-These commands will be updated as implementation and environment constraints become clearer.
-
 ## Current Risks
 
 - Windows PowerShell policy blocks direct `.ps1` execution and `npm.ps1`, so unattended commands use inline PowerShell logic and `npm.cmd`
-- seed projects are scaffolded consistently, but only `00-base-admin` is currently fully build-validated in this run
-- frontend bundle size warning exists for `00-base-admin` and may need future route-level code splitting if the baseline grows
+- top three seed projects currently need real implementation depth, not just richer docs
+- remaining seven projects need code/module scaffolds without fragmenting the architecture
+- frontend bundle size warning exists for `00-base-admin` and may also appear in derived projects if they inherit the same bundling pattern

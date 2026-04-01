@@ -47,3 +47,26 @@ Reason:
 - the environment blocks direct `.ps1` execution
 - the repository still benefits from having a reusable script checked in for later operators
 - using equivalent inline logic allowed the unattended run to continue without lowering repo quality
+
+### D-007: Derive the top three seed projects from the validated 00-base-admin baseline
+
+Reason:
+
+- it preserves auth/system/dashboard consistency across the highest-priority derivatives
+- it reduces the risk of architectural drift while still allowing project-specific business modules
+- it is the fastest safe path to materially deeper implementations in an unattended continuation run
+
+### D-008: Keep the remaining seven seeds lighter than the top three, but stronger than documentation-only scaffolds
+
+Reason:
+
+- the continuation run explicitly prioritizes the top three projects
+- spreading full runnable implementation across all ten projects at once would reduce overall quality
+- representative backend/frontend module files plus startup and inheritance docs leave the remaining seeds in a concrete next-step state
+
+### D-009: Extract a reusable derived-project promotion checklist after repeating the same validation and carryover steps across top-three derivatives
+
+Reason:
+
+- the continuation run surfaced a stable repeated pattern for seed promotion
+- documenting it once in `shared/` improves future consistency without forcing premature code abstraction
