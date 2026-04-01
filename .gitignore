@@ -1,0 +1,25 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Java / Maven
+target/
+.mvn/wrapper/maven-wrapper.jar
+
+# Node / Vite
+node_modules/
+dist/
+coverage/
+
+# Local runtime files
+*.db
+*.mv.db
+*.trace.db
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/
+*.iml
