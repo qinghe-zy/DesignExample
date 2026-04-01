@@ -1,71 +1,139 @@
-# Projectexample
+# DesignExample / Projectexample
 
-`Projectexample` is an evolving academic project template factory for course-design and graduation-project systems.
+`DesignExample`（本地工作目录仍为 `Projectexample`）是一个面向课程设计、毕业设计、教学管理类系统的**模板工厂仓库**。
 
-The current baseline focuses on reusable foundations rather than a large batch of business demos. The workspace is meant to accumulate shared standards, blueprints, starter projects, and catalog knowledge so future systems can be created with less copy-paste and more consistency.
+它的定位不是单项目应用仓库，而是一个可持续维护的模板资产仓库，用来沉淀：
 
-## Current Baseline
+- 共享工程规范
+- 共享蓝图
+- 基础底座项目
+- 种子项目
+- 项目生成与扩展方法
+- 数据库初始化与验证经验
 
-This repository currently provides:
+## 当前仓库真实状态
 
-- root governance documents that describe the factory method and current standards
-- shared engineering conventions for naming, API shape, auth, CRUD pages, and module layering
-- a reusable base admin blueprint under [blueprints/base-admin-template](/D:/Projectexample/blueprints/base-admin-template)
-- one runnable example project under [projects/00-base-admin](/D:/Projectexample/projects/00-base-admin)
-- an initial template catalog that can be expanded as new template families are added
-- helper workflow guidance and a starter script for new template initialization
+当前仓库已具备：
 
-The baseline is intentionally open-ended. More blueprints, shared modules, and concrete projects can be added later without treating the current layout as a fixed final state.
+- 根级治理与过程记忆文件
+- `docs/`、`shared/`、`blueprints/`、`projects/` 的稳定基础结构
+- 可运行基础底座项目 `projects/00-base-admin`
+- 10 个固定种子项目
+- 其中 3 个重点项目已达到“构建可通过 + MySQL profile 可验证”的较深实现状态：
+  - `student-management`
+  - `library-management`
+  - `exam-system`
+- 其余 7 个项目已达到“强化脚手架状态”，具备后续继续推进所需的代表模块与说明文档
 
-## Current Delivery Branch
-
-The current working branch is `codex/bootstrap-template-factory`.
-
-For remote delivery visibility, the completed repository state has also been pushed to `main` on:
-
-- [https://github.com/qinghe-zy/DesignExample.git](https://github.com/qinghe-zy/DesignExample.git)
-
-## Recommended Current Structure
+## 当前仓库结构
 
 ```text
-Projectexample/
-├─ docs/                  workspace architecture, guides, catalog, and future notes
-├─ scripts/               helper scripts for repeatable setup and project creation
-├─ shared/                reusable conventions, notes, and future extractable assets
-├─ blueprints/            reusable blueprint definitions and starter baselines
-├─ projects/              runnable generated projects and verified examples
+DesignExample/
+├─ docs/          总览、架构、指南、模板目录
+├─ scripts/       辅助脚本说明
+├─ shared/        共享规范、共享说明、共享检查清单
+├─ blueprints/    基础蓝图说明
+├─ projects/      基础底座项目与种子项目
 ├─ AGENTS.md
 ├─ PROJECT_STANDARDS.md
-└─ TEMPLATE_FACTORY_METHOD.md
+├─ TEMPLATE_FACTORY_METHOD.md
+├─ Prompt.md
+├─ Plan.md
+├─ Implement.md
+├─ Documentation.md
+├─ DECISIONS.md
+├─ CHANGELOG.md
+└─ HANDOFF.md
 ```
 
-See [workspace-architecture.md](/D:/Projectexample/docs/architecture/workspace-architecture.md) for the current layer model and extension strategy.
+当前结构是**现阶段推荐结构**，不是永久封闭目录树。后续可在不破坏清晰分层的前提下继续扩展。
 
-## Factory Layers
+## 当前基础底座
 
-The current workspace is organized around four long-term layers:
+[projects/00-base-admin](/D:/Projectexample/projects/00-base-admin) 是当前共享基础底座，负责提供：
 
-1. Factory layer: repo-level standards, docs, scripts, and catalog assets.
-2. Blueprint layer: reusable starter definitions, architecture baselines, and extension guidance.
-3. Project layer: runnable examples generated from a blueprint plus selected business modules.
-4. Module layer: future business capabilities that can be combined with the base admin stack.
+- 后端分层基线
+- 前端管理端基线
+- 登录 / 登出 / 当前用户
+- JWT + RBAC 基线
+- 仪表盘
+- 用户 / 角色 / 菜单
+- 通用 CRUD 页面范式
+- 本地 H2 快速验证路径
+- MySQL 初始化脚本与 MySQL profile 验证路径
 
-The first three layers are established in this run. The module layer is intentionally left open for future extraction and template growth.
+它是后续派生项目的统一起点，而不是所有业务项目的最终形态。
 
-## Current Runnable Example
+## 当前项目分层
 
-[projects/00-base-admin](/D:/Projectexample/projects/00-base-admin) is the current proof-of-baseline project. It demonstrates:
+### 1. 工厂层
 
-- Spring Boot backend with layered structure, JWT skeleton, unified response wrapper, and representative CRUD
-- Vue 3 admin frontend with login, layout, dashboard, system pages, and CRUD page
-- startup instructions and SQL initialization artifacts
-- clear extension points for file upload, operation logs, chart/statistics, and future business modules
+由根级治理文件、`docs/`、`shared/`、`scripts/` 构成，负责描述：
 
-It is a starting point for future templates, not a closed final admin system.
+- 仓库定位
+- 工程标准
+- 模板方法
+- 演进策略
+- 验证规则
 
-## Current Local Database Convention
+### 2. 蓝图层
 
-For local MySQL verification, the current convention is:
+由 `blueprints/` 构成，负责描述：
+
+- 可复用起始架构
+- 蓝图边界
+- 扩展点
+
+### 3. 项目层
+
+由 `projects/` 构成，包含：
+
+- `00-base-admin`
+- 10 个固定种子项目
+
+### 4. 模块层
+
+模块层存在于具体项目内部，当前已在三个重点项目中形成真实业务模块，在其余项目中形成代表性模块骨架。
+
+## 当前项目状态一览
+
+### 可运行 / 已较深实现
+
+- `00-base-admin`
+- `student-management`
+- `library-management`
+- `exam-system`
+
+说明：
+
+- 后端构建通过
+- 后端测试通过
+- 前端安装与构建通过
+- 数据库已完成本地初始化
+- MySQL profile 下测试上下文可启动
+
+### 强化脚手架状态
+
+- `mall-system`
+- `blog-cms-forum`
+- `hotel-booking`
+- `hr-payroll-attendance`
+- `course-learning-platform`
+- `property-rental-dorm`
+- `erp-inventory-sales`
+
+说明：
+
+- 已有项目 README
+- 已有后端/前端 README
+- 已有模块说明、扩展说明、继承说明、启动建议
+- 已有 SQL/schema 基线
+- 已有代表业务模块骨架
+- 尚未推进到与重点项目同等的运行深度
+
+## 本地数据库规则
+
+本地 MySQL 当前采用以下命名规则：
 
 - `designexample_base_admin`
 - `designexample_student_management`
@@ -79,32 +147,41 @@ For local MySQL verification, the current convention is:
 - `designexample_property_rental_dorm`
 - `designexample_erp_inventory_sales`
 
-This avoids collisions with unrelated local databases while keeping project ownership obvious.
+该规则用于避免本机已有数据库冲突，并支持后续统一初始化与验证。
 
-## How New Templates Should Start
+## Git 与交付分支
 
-Use this general flow:
+当前工作分支：
 
-1. Pick a template family from the current catalog or add a new seed entry.
-2. Start from [blueprints/base-admin-template](/D:/Projectexample/blueprints/base-admin-template).
-3. Create a project folder under `projects/` using the current naming rules.
-4. Keep auth, dashboard, user, role, and menu baselines unless there is a documented reason to change them.
-5. Add business modules incrementally and update docs/schema along the way.
-6. Record reusable patterns that should move into `shared/` or future blueprints.
+- `codex/bootstrap-template-factory`
 
-Detailed guidance lives in [how-to-create-a-new-template.md](/D:/Projectexample/docs/guides/how-to-create-a-new-template.md).
+当前远程可见交付分支：
 
-## Important Working Assumptions
+- `main`
 
-- Java 17 remains the source/target baseline for templates even if local machines use newer JDKs.
-- MySQL remains the default business database target. The base project also includes a lightweight local dev path so the starter can be run quickly.
-- JWT + RBAC is the current auth baseline.
-- The current project list and folder layout are expected to evolve over time.
+远程仓库地址：
 
-## Suggested Next Reading
+- [https://github.com/qinghe-zy/DesignExample.git](https://github.com/qinghe-zy/DesignExample.git)
 
-- [workspace-architecture.md](/D:/Projectexample/docs/architecture/workspace-architecture.md)
-- [development-workflow.md](/D:/Projectexample/docs/guides/development-workflow.md)
-- [template-catalog.md](/D:/Projectexample/docs/catalog/template-catalog.md)
-- [base-admin-template README](/D:/Projectexample/blueprints/base-admin-template/README.md)
-- [00-base-admin README](/D:/Projectexample/projects/00-base-admin/README.md)
+## 阅读顺序建议
+
+建议按以下顺序理解仓库：
+
+1. [PROJECT_STANDARDS.md](/D:/Projectexample/PROJECT_STANDARDS.md)
+2. [TEMPLATE_FACTORY_METHOD.md](/D:/Projectexample/TEMPLATE_FACTORY_METHOD.md)
+3. [docs/architecture/workspace-architecture.md](/D:/Projectexample/docs/architecture/workspace-architecture.md)
+4. [docs/catalog/template-catalog.md](/D:/Projectexample/docs/catalog/template-catalog.md)
+5. [projects/00-base-admin/README.md](/D:/Projectexample/projects/00-base-admin/README.md)
+6. 三个重点项目 README
+
+## 后续优先建议
+
+如果继续推进，建议优先顺序为：
+
+1. 对 `student-management`、`library-management`、`exam-system` 做浏览器/API 级别烟雾验证
+2. 继续深化：
+   - `mall-system`
+   - `blog-cms-forum`
+   - `course-learning-platform`
+   - `erp-inventory-sales`
+3. 在重复模式成熟后，进一步抽取共享能力与蓝图能力

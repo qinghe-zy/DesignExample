@@ -1,34 +1,32 @@
-# Derived Project Promotion Checklist
+# 派生项目推进清单
 
-Use this checklist when promoting a seed project from documentation-heavy scaffold to materially implemented derived project.
+当一个种子项目准备从“强化脚手架状态”推进到“较深实现状态”时，可参考以下清单：
 
-## Baseline Carryover
+## 继承基础底座
 
-- inherit the shared auth and RBAC baseline from `00-base-admin`
-- keep system user/role/menu modules available unless there is a documented reason not to
-- preserve the layered backend and frontend structure
+- 继承认证与权限基线
+- 继承系统管理模块
+- 继承仪表盘基础能力
 
-## Business Deepening
+## 增加业务模块
 
-- add 2-4 representative business modules for the target project
-- create project-specific SQL schema and seed data
-- wire project-specific menus and routes
-- update dashboard text and metrics to reflect the new domain
+- 至少补充 2~4 个代表业务模块
+- 更新菜单与路由
+- 更新数据库 schema 与种子数据
+- 更新项目 README
 
-## Validation
+## 验证
 
-- run `mvn -q clean -DskipTests package`
-- run `mvn -q test`
-- run `npm.cmd install`
-- run `npm.cmd run build`
-- record warnings and blockers honestly
+- 后端 `mvn clean package`
+- 后端 `mvn test`
+- 前端 `npm.cmd install`
+- 前端 `npm.cmd run build`
+- 数据库初始化验证
 
-## Documentation
+## 文档同步
 
-- update project README with startup and validation commands
-- update module summary and extension notes
-- record whether the project is runnable, partially implemented, or scaffold-first
-
-## Extraction Rule
-
-If the same promotion step or module pattern appears across multiple projects, consider moving the guidance or code pattern into `shared/` or the blueprint layer rather than repeating it indefinitely.
+- 项目 README
+- 模块说明
+- 启动说明
+- 扩展说明
+- 交接文档中的项目状态

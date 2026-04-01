@@ -1,75 +1,54 @@
-# Template Catalog
+# 模板目录
 
-## Purpose
+## 文档目的
 
-This catalog records current seed template families that the factory is expected to support over time. It is intentionally open for future new entries, revised priorities, and deeper module decomposition.
+本文档记录当前仓库中预期支持的模板类别与种子项目方向。
 
-## How To Read The Catalog
+它是**当前种子目录**，不是仓库未来永久封闭清单。
 
-Each entry describes:
+## 当前目录字段说明
 
-- template family
-- common business modules
-- reuse characteristics
-- recommended build order
-- likely extension points
+每个条目至少包含：
 
-The current catalog is a planning and reuse tool, not a promise that every listed template already exists.
+- 模板类别
+- 常见业务模块
+- 复用潜力
+- 当前建议优先级
+- 可能扩展点
 
-## Seed Catalog Entries
+## 当前种子条目
 
-| Template Family | Common Business Modules | Reuse Characteristics | Recommended Build Order | Likely Extension Points |
-|----------------|-------------------------|-----------------------|-------------------------|-------------------------|
-| Student management | students, classes, majors, attendance, scores, notices | very high reuse of users, roles, menus, CRUD forms, statistics | early | batch import, score analytics, guardian linkage, dorm linkage |
-| Library management | books, categories, shelves, borrow records, overdue reminders | high reuse of CRUD, status workflows, dashboard counts | early | barcode support, reservations, fines, audit reports |
-| Online exam system | question bank, papers, exam schedule, submissions, grading | medium reuse with stronger workflow complexity | after base admin and one simpler management template | random paper generation, anti-cheat, grading rules, analytics |
-| Mall / e-commerce | products, categories, orders, customers, inventory | high CRUD reuse with more transaction logic | medium | coupons, payments, delivery, after-sales |
-| Blog / CMS / forum | posts, categories, tags, comments, moderation | high reuse of admin baseline plus content workflow | medium | draft workflow, publishing pipeline, media library, SEO |
-| Hotel booking | rooms, room types, bookings, check-in/out, pricing | medium reuse with scheduling and availability concerns | medium | seasonal pricing, customer profiles, invoicing, reports |
-| HR / payroll / attendance | employees, departments, attendance, leave, payroll | high reuse of auth and CRUD with more rule-heavy modules | medium | approval workflow, salary formulas, document archive |
-| Course / learning platform | courses, chapters, enrollments, assignments, progress | medium reuse with more portal-like features | medium to late | video progress, quizzes, certificate rules, notifications |
-| Property / dorm / rental | buildings, rooms, tenants, leases, repairs, fees | high reuse of standard CRUD and status modules | early to medium | billing cycles, maintenance workflow, occupancy analytics |
-| ERP / inventory / sales | suppliers, customers, products, stock, orders, procurement | high reuse with stronger cross-module linkage | medium to late | multi-warehouse, approval flow, finance linkage, dashboards |
+| 模板类别 | 常见业务模块 | 复用潜力 | 当前建议优先级 | 可能扩展点 |
+|----------|--------------|----------|----------------|------------|
+| 学生管理 | 学生档案、班级、专业、考勤、成绩、通知 | 很高 | 高 | 批量导入、家长关联、宿舍关联、成绩分析 |
+| 图书馆管理 | 图书目录、分类、书架、读者、借阅、逾期提醒 | 高 | 高 | 条码、预约、罚金、库存审计 |
+| 在线考试系统 | 题库、试卷、考试安排、提交记录、评分 | 高 | 高 | 组卷、反作弊、评分规则、统计分析 |
+| 商城系统 | 商品、分类、订单、客户、库存 | 高 | 中 | 优惠券、支付、配送、售后 |
+| 博客 / CMS / 论坛 | 文章、分类、标签、评论、审核 | 高 | 中 | 草稿流、媒体库、发布流、SEO |
+| 酒店预订 | 房间、房型、订单、入住退房、价格 | 中 | 中 | 季节价格、发票、入住统计 |
+| HR / 薪资 / 考勤 | 员工、部门、考勤、请假、薪资 | 高 | 中 | 审批流、薪资计算、档案管理 |
+| 课程学习平台 | 课程、章节、选课、作业、进度 | 中 | 中 | 视频进度、测验、证书 |
+| 物业 / 宿舍 / 租赁 | 楼栋、房间、住户、合同、报修 | 高 | 中 | 账单周期、维修流程、入住率统计 |
+| ERP / 库存 / 销售 | 供应商、商品、库存、销售单、采购单 | 高 | 中 | 多仓库、审批流、财务联动 |
 
-## Reuse Observations
+## 当前推进状态说明
 
-### High-Reuse Baseline Areas
+### 已较深实现的重点项目
 
-These are expected to recur across many template families:
+- 学生管理
+- 图书馆管理
+- 在线考试系统
 
-- login and current-user flow
-- user/role/menu management
-- dashboard summaries
-- standard list/search/pagination pages
-- create/edit dialogs and forms
-- status management
-- export/upload extension points
+### 已强化脚手架的项目
 
-### Medium-Reuse Areas
+- 商城系统
+- 博客 / CMS / 论坛
+- 酒店预订
+- HR / 薪资 / 考勤
+- 课程学习平台
+- 物业 / 宿舍 / 租赁
+- ERP / 库存 / 销售
 
-These may later deserve deeper shared treatment once multiple templates stabilize:
+## 后续扩展规则
 
-- file attachment handling
-- audit logs
-- chart cards and trend summaries
-- dictionary management
-- workflow-style approval states
-
-## Suggested Current Evolution Order
-
-1. Base admin baseline
-2. One or two management-heavy templates with high CRUD reuse
-3. More workflow-heavy templates
-4. Specialized blueprint growth if the current baseline becomes too stretched
-
-## Adding Future Entries
-
-When adding a new family, keep the same information shape:
-
-- name
-- common modules
-- reuse characteristics
-- recommended build order
-- extension points
-
-Additional columns can be added later if the catalog needs to track maturity, dependencies, or blueprint fit more precisely.
+新增条目时，应保持当前字段结构清晰一致。若未来需要记录更多维度（例如成熟度、依赖关系、蓝图适配度），可继续增加列或增加附加说明。

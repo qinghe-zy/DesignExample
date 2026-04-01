@@ -1,50 +1,36 @@
 # Prompt
 
-## Stable Mission
+## 稳定使命
 
-Continue evolving `Projectexample` from a factory foundation into a deeper academic project template platform with materially advanced seed projects.
+将 `DesignExample` 持续维护为一个可长期演进的学术类项目模板工厂，用于课程设计、毕业设计等高频管理系统的快速生成、验证与交付。
 
-The repository should support:
+## 本轮目标
 
-- future project additions
-- shared engineering standards
-- reusable blueprints
-- consistent naming and layering
-- long-term maintainability
-- runnable starter templates
-- future-friendly documentation
-- low-rework generation of new project templates
+本轮属于最终清理、中文化与一致性修复阶段，目标包括：
 
-## Continuation Success Criteria
+- 全仓库对外文档中文化
+- 修复文档与代码实现不一致的问题
+- 修复复制残留、路径错误、命名残留等明显问题
+- 统一根级总览、项目级说明、蓝图说明、共享规范说明
+- 保持仓库结构清晰、可审阅、可继续扩展
+- 保持 git 状态干净并尽可能完成远程推送
 
-The current continuation run is considered successful if it leaves behind, at minimum:
+## 当前验收标准
 
-- refreshed repo memory files aligned with continuation work
-- materially deeper implementations for `student-management`, `library-management`, and `exam-system`
-- stronger backend/frontend/module scaffolds for the remaining seven fixed seed projects
-- validation notes for every major project changed in this run
-- updated decisions, changelog, and handoff that clearly distinguish runnable work from partial work
-- a clean reviewable git history for this continuation phase
+本轮完成后，仓库至少应满足：
 
-## Constraints
+- 根级治理文档、过程记忆文档、交接文档全部为中文主导
+- `docs/`、`shared/`、`blueprints/`、`projects/` 下的重要说明文档全部中文化
+- 根级 README、Documentation、HANDOFF、CHANGELOG、项目 README 的状态描述一致
+- 三个重点项目的中文说明完整清晰
+- 七个其余项目的中文说明规范统一，不再停留在含糊占位状态
+- `.gitignore`、git 状态、远程推送状态、数据库初始化状态均有明确记录
 
-- reuse first, specialize second
-- keep docs open-ended and extensible
-- avoid random demo sprawl
-- avoid overengineering
-- prefer clean baseline consistency over shallow breadth
-- document assumptions and tradeoffs explicitly
+## 约束
 
-## Default Stack Baseline
-
-- Backend: Java 17 target, Spring Boot 3, MyBatis-Plus, MySQL, JWT, Knife4j
-- Frontend: Vue 3, TypeScript, Vite, Element Plus, Pinia, Vue Router
-
-## Current Scope Priorities
-
-1. preserve the existing factory baseline and `00-base-admin`
-2. deepen `projects/student-management`
-3. deepen `projects/library-management`
-4. deepen `projects/exam-system`
-5. materially advance the remaining seven fixed seed projects
-6. extract shared improvements only where they clearly pay off
+- 真实状态优先于旧文档描述
+- 一致性优先于历史表述
+- 中文优先，但允许保留必要英文技术术语
+- 不做无关的大重构
+- 不引入不必要的新框架
+- 保持未来扩展空间，不把仓库描述写死

@@ -1,15 +1,12 @@
-# Startup Guide
+# 启动建议
 
-## Current Status
+## 当前状态
 
-This seed is not yet promoted to the same runnable level as 00-base-admin.
+该项目当前属于强化脚手架状态，不建议直接宣称为可运行项目。
 
-## Recommended Next Step
+## 推荐推进顺序
 
-Derive auth/system baseline from 00-base-admin, then implement lease management first.
-
-## Validation To Attempt After Promotion
-
-- mvn -q -DskipTests package
-- npm.cmd install
-- npm.cmd run build
+1. 继承 00-base-admin 的基础能力
+2. 补齐数据库初始化脚本
+3. 推进代表业务模块
+4. 再执行后端和前端构建验证

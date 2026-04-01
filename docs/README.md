@@ -1,11 +1,11 @@
-# Docs
+# docs
 
-`docs/` contains the current human-facing guidance for how the template factory is organized and how it should evolve.
+`docs/` 用于存放仓库级总览、架构说明、开发指南、模板目录等文档。
 
-## Current Areas
+## 当前子目录
 
-- `architecture/`: repo-level structure and layering guidance
-- `guides/`: workflow and template-creation instructions
-- `catalog/`: current seed template catalog
+- `architecture/`：仓库架构与分层说明
+- `guides/`：开发流程、模板创建与维护指南
+- `catalog/`：模板目录与种子项目说明
 
-More doc sections can be added later as the workspace grows.
+未来可以根据需要继续增加新的文档子目录，但应保持层次清晰、命名稳定。

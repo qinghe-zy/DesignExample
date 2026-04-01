@@ -1,105 +1,125 @@
 # Documentation
 
-## Environment Findings
+## 本轮执行摘要
 
-- Root inspected on 2026-04-01.
-- Initial root files found: `AGENTS.md`, `PROJECT_STANDARDS.md`, `TEMPLATE_FACTORY_METHOD.md`.
-- Initial workspace state contained no `docs/`, `shared/`, `blueprints/`, or `projects/` content.
-- `git status` initially failed because the folder was not a git repository.
-- Git was initialized during this run.
-- Java available: JDK 21.
-- Maven available: 3.9.12.
-- Node available: v24.13.1.
-- `npm.cmd` works; `npm.ps1` is blocked by PowerShell execution policy.
-- direct `.ps1` invocation is blocked by PowerShell execution policy, so seed generation used inline PowerShell logic instead of calling `scripts/create-template.ps1` directly
-- `pnpm` not found.
+本轮为最终清理、中文化与一致性修复阶段，主要工作包括：
 
-## Current Progress Summary
+- 全仓库对外文档中文化
+- 修复文档与实现不一致的问题
+- 修复错误路径、复制残留、旧命名残留
+- 同步 Git 状态、远程推送状态与数据库状态
+- 完成最终交接文档收口
 
-- root docs and shared conventions created
-- base admin blueprint docs created
-- `projects/00-base-admin` backend and frontend implemented to the current baseline
-- backend packaged successfully and test context loaded successfully
-- frontend installed dependencies and built successfully
-- all ten fixed seed template folders were created with docs and SQL/schema baselines
-- the top three seed templates (`student-management`, `library-management`, `exam-system`) received richer scaffolds than the other seeds
-- continuation run materially deepened `student-management`, `library-management`, and `exam-system`
-- the remaining seven seed projects now contain backend/frontend representative module scaffolds, startup notes, and inheritance notes
-- extracted a reusable promotion checklist at `shared/specs/derived-project-promotion-checklist.md`
-- `.gitignore` was expanded for multi-project Java/Vue/Node workspace hygiene
-- `origin` now targets `https://github.com/qinghe-zy/DesignExample.git`
-- local MySQL databases were created for all eleven project contexts using the `designexample_*` naming convention
-- the completed repository state was pushed to both `origin/codex/bootstrap-template-factory` and `origin/main`
+## 当前环境结论
 
-## Validation Results
+- 当前分支：`codex/bootstrap-template-factory`
+- 远程仓库：`https://github.com/qinghe-zy/DesignExample.git`
+- 当前远程可访问并已完成推送
+- 本地 MySQL 客户端可用
+- 本地 MySQL 验证账户：
+  - host: `localhost`
+  - port: `3306`
+  - user: `root`
 
-- `mvn -q -DskipTests package` in `projects/00-base-admin/backend`: success
-- `mvn -q test` in `projects/00-base-admin/backend`: success
-- `npm.cmd install` in `projects/00-base-admin/frontend`: success
-- `npm.cmd run build` in `projects/00-base-admin/frontend`: success with a chunk-size warning
-- `Get-ChildItem projects | Select-Object -ExpandProperty Name`: confirmed all fixed seed project folders exist
-- `mvn -q clean -DskipTests package` in `projects/student-management/backend`: success
-- `mvn -q test` in `projects/student-management/backend`: success
-- `npm.cmd install` in `projects/student-management/frontend`: success
-- `npm.cmd run build` in `projects/student-management/frontend`: success with a chunk-size warning
-- `mvn -q clean -DskipTests package` in `projects/library-management/backend`: success
-- `mvn -q test` in `projects/library-management/backend`: success
-- `npm.cmd install` in `projects/library-management/frontend`: success
-- `npm.cmd run build` in `projects/library-management/frontend`: success with a chunk-size warning
-- `mvn -q clean -DskipTests package` in `projects/exam-system/backend`: success
-- `mvn -q test` in `projects/exam-system/backend`: success
-- `npm.cmd install` in `projects/exam-system/frontend`: success
-- `npm.cmd run build` in `projects/exam-system/frontend`: success with a chunk-size warning
-- structure sanity checks confirmed backend/frontend representative module scaffolds for the remaining seven seeds
-- `mysql -h localhost -P 3306 -u root -p123456 -e "SHOW DATABASES;"`: success
-- local MySQL imports succeeded for all eleven `designexample_*` databases
-- table-count verification succeeded across all initialized databases
-- representative seed-data verification succeeded for `designexample_base_admin`, `designexample_student_management`, `designexample_library_management`, and `designexample_exam_system`
-- backend test contexts succeeded against MySQL profile for `00-base-admin`, `student-management`, `library-management`, and `exam-system`
-- `git push -u origin codex/bootstrap-template-factory`: success
-- `git push origin codex/bootstrap-template-factory:main`: success
-- `git ls-remote --heads origin`: success and confirmed both `main` and `codex/bootstrap-template-factory` exist on the remote
+## 文档中文化范围
 
-## Important Commands
+本轮已中文化或重写的文档范围包括：
+
+- 根级治理与过程记忆文档
+- `docs/` 下总览与指南文档
+- `shared/` 下规范与说明文档
+- `blueprints/` 下蓝图说明文档
+- `projects/` 下根级与项目级说明文档
+
+未纳入中文化范围的文件主要是：
+
+- `node_modules/` 下第三方依赖自带说明
+- `target/` 下测试与构建产物
+- 代码文件中的技术性注释（若存在）
+
+## 本轮修复的关键问题
+
+- 根级 README、Documentation、HANDOFF、项目 README 状态描述进行了统一
+- 修复了数据库相关文档与真实初始化状态不一致的问题
+- 修复了 MySQL 相关 SQL 中 `CLOB` 类型不兼容的问题
+- 为 4 个最完整后端项目补充了 `application-mysql.yml`
+- 修复了项目级 README 中格式和启动说明不统一的问题
+
+## 数据库状态
+
+本地数据库命名规则：
+
+- `designexample_base_admin`
+- `designexample_student_management`
+- `designexample_library_management`
+- `designexample_exam_system`
+- `designexample_mall_system`
+- `designexample_blog_cms_forum`
+- `designexample_hotel_booking`
+- `designexample_hr_payroll_attendance`
+- `designexample_course_learning_platform`
+- `designexample_property_rental_dorm`
+- `designexample_erp_inventory_sales`
+
+已执行的数据库工作：
+
+- 创建上述全部数据库
+- 导入 4 个重点数据库项目的 MySQL 初始化脚本
+- 导入其余 7 个项目的 schema 基线脚本
+- 验证所有 `designexample_*` 数据库已存在
+- 验证重点项目的代表表与种子数据
+
+## 重点项目数据库验证结果
+
+以下项目已完成 MySQL profile 下的 Spring 测试上下文验证：
+
+- `00-base-admin`
+- `student-management`
+- `library-management`
+- `exam-system`
+
+验证结论：
+
+- 数据源连接成功
+- Spring 测试上下文可启动
+- MySQL 初始化脚本在当前本地环境可执行
+
+## 构建与验证记录
+
+已实际执行并成功的关键命令包括：
 
 - `git status --short --branch`
-- `mvn -q -DskipTests package`
+- `git ls-remote --heads origin`
+- `git push -u origin codex/bootstrap-template-factory`
+- `git push origin codex/bootstrap-template-factory:main`
+- `mysql -h localhost -P 3306 -u root -p123456 -e "SHOW DATABASES;"`
+- `mvn -q clean -DskipTests package`
 - `mvn -q test`
 - `npm.cmd install`
 - `npm.cmd run build`
+- `SPRING_PROFILES_ACTIVE=mysql` 下的后端测试上下文验证
 
-## Known Issues
+## 当前已知注意事项
 
-- `00-base-admin` frontend build reports a large chunk-size warning after bundling; build still succeeds
-- npm reported 2 moderate vulnerabilities after dependency install; no fix was applied automatically in this run to avoid surprise dependency churn
-- `student-management`, `library-management`, and `exam-system` are materially implemented and build-validated, but not yet smoke-tested through browser/API interaction
-- the remaining seven seeds are materially stronger than empty scaffolds, but they are not yet promoted to runnable depth
-- `git remote show origin` failed once with an SSL/TLS handshake error, but push and `ls-remote` verification still succeeded
+- `00-base-admin` 与三个重点项目的前端生产构建仍有 chunk size 警告，但构建成功
+- npm 依赖仍提示 2 个 moderate 级别漏洞，本轮未自动升级依赖以避免无控制变更
+- 三个重点项目虽已达到“可构建 + 可连库 + 可启动测试上下文”，但仍未做浏览器/API 端到端烟雾验证
+- 其余 7 个项目当前属于“强化脚手架状态”，并非同等深度的可运行项目
 
-## Installed Or Configured Tooling
+## Git 状态
 
-- no additional tools installed so far
-- workaround in use: prefer `npm.cmd` instead of `npm` in PowerShell sessions
-- workaround in use: inline PowerShell generation instead of direct `.ps1` execution where execution policy blocks script invocation
+- 当前本地工作树：干净
+- 当前分支：`codex/bootstrap-template-factory`
+- 已推送分支：
+  - `origin/codex/bootstrap-template-factory`
+  - `origin/main`
 
-## Next State
+## 后续建议
 
-1. review `student-management`, `library-management`, and `exam-system` in real local runs with browser/API smoke checks
-2. choose which of the remaining seven seeds should be promoted next, with `mall-system`, `blog-cms-forum`, `course-learning-platform`, and `erp-inventory-sales` as the strongest follow-up candidates
-3. optionally create a local `main` branch if you want local branch names to mirror the remote delivery branch
-
-## Git State
-
-- current branch: `codex/bootstrap-template-factory`
-- working tree: clean
-- milestone commits:
-  - `53f91b4` chore: initialize template factory governance
-  - `15da901` feat: add runnable base admin baseline
-  - `f41d3e6` feat: scaffold initial seed template projects
-  - `ed5cd5f` docs: finalize unattended run handoff
-  - `db513c2` docs: refresh final git metadata
-  - `ea90011` feat: deepen top three seed projects
-  - `c882e5c` feat: strengthen remaining seed project scaffolds
-  - `69b2dcf` docs: sync continuation handoff state
-  - `10a8d09` docs: refresh continuation git summary
-  - `644562f` chore: finalize db verification and delivery hygiene
+1. 对三个重点项目进行浏览器/API 级别烟雾验证
+2. 继续优先推进：
+   - `mall-system`
+   - `blog-cms-forum`
+   - `course-learning-platform`
+   - `erp-inventory-sales`
+3. 如需保持本地与远程分支名一致，可在本地再建立 `main`

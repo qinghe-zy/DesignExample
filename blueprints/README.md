@@ -1,9 +1,9 @@
-# Blueprints
+# blueprints
 
-`blueprints/` stores reusable starting points for future projects.
+`blueprints/` 用于存放可复用的项目起始蓝图。
 
-## Current Blueprint
+## 当前蓝图
 
-- `base-admin-template/`: the current standard starter for management-oriented academic systems
+- `base-admin-template/`：当前管理端类项目的基础蓝图
 
-Future sibling blueprints may be added when several template families need a different baseline interaction model or architecture emphasis.
+未来如果出现明显不同的项目类型，例如内容平台型、考试引擎型、移动优先型，可继续增加新的兄弟蓝图。

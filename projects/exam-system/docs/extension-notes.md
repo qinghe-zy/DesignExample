@@ -1,15 +1,12 @@
-# Extension Notes
+# 扩展说明
 
-## Likely Extension Points
+## 当前可扩展方向
 
-- paper randomization
-- grading workflow
-- exam analytics
-- anti-cheat hooks
+- 在现有模块基础上增加更细分业务流程
+- 增加统计、报表、导入导出、审批等能力
+- 将稳定重复模式抽取回共享层
 
-## Guardrails
+## 当前约束
 
-- do not replace the shared admin baseline without documenting the reason
-- prefer extracting stable shared patterns back into shared/ or a future blueprint
-- keep SQL naming and frontend/backend layering consistent with the current factory standards
-
+- 不应破坏基础认证与系统管理底座
+- 不应在当前阶段把项目特定能力过早抽到共享层

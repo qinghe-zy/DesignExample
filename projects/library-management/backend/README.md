@@ -1,19 +1,17 @@
-# Backend Seed Scaffold
+# 后端说明
 
-This seed should derive backend structure from projects/00-base-admin/backend.
+## 当前定位
 
-## Priority Modules
+当前后端已从 00-base-admin 派生，重点承担 图书馆管理 的核心业务逻辑。
 
-- books
-- categories
-- shelves
-- borrow records
-- overdue reminders
+## 当前实现重点
 
-## Current Recommendation
+- 保留基础认证与系统管理基线，并扩展图书馆业务模块
+- 继承统一响应、统一异常、JWT、系统管理基线
+- 新增项目业务实体、DTO、VO、Mapper、Service、Controller
 
-- keep the same controller/service/mapper/entity/dto/vo layering
-- keep JWT + RBAC from the library management baseline
-- add business tables and services incrementally
-- avoid topic-specific shortcuts inside shared system modules
+## 当前验证
 
+- mvn -q clean -DskipTests package
+- mvn -q test
+- MySQL profile 测试上下文通过

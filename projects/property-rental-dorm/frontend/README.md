@@ -1,13 +1,14 @@
-# Frontend Scaffold
+# 前端说明
 
-This frontend scaffold follows the current Vue admin baseline for Property Rental Dorm.
+## 当前状态
 
-## First Representative Module
+当前前端处于强化脚手架阶段，已具备：
 
-- LeaseManagement
+- API 文件骨架
+- 路由骨架
+- 代表业务页面骨架
 
-## Current Expectation
+## 当前建议
 
-- preserve api/views/components/stores/router layering
-- reuse login, layout, dashboard, and system baseline from 00-base-admin when implementation begins
-- keep CRUD page rhythm consistent with the shared patterns
+- 先继承 00-base-admin 的登录、布局、系统页面和仪表盘
+- 再逐步把代表页面推进为真实业务页面

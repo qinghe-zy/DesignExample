@@ -1,33 +1,41 @@
 # Implement
 
-## Execution Runbook
+## 执行方式
 
-Use this file as the working runbook for unattended execution.
+本轮采用“先盘点、再统一、后校验、最后提交”的执行顺序。
 
-## Working Rules
+## 工作规则
 
-1. inspect before editing
-2. prefer minimal viable reusable structure
-3. update Documentation.md, DECISIONS.md, CHANGELOG.md, and HANDOFF.md as milestones move
-4. validate after each major milestone
-5. repair drift or inconsistency before expanding scope
+1. 先检查真实仓库状态，再修改文档
+2. 文档描述必须服从当前代码与目录现实
+3. 中文化时保持工程术语统一，不做生硬直译
+4. 修复明显错误引用、残留命名、路径错误
+5. 每完成一层文档，就做一次一致性检查
+6. 最终必须同步 Documentation、CHANGELOG、HANDOFF
+7. Git 推送结果必须真实记录，不得虚报
 
-## Current Implementation Order
+## 本轮执行顺序
 
-1. durable memory files
-2. git baseline
-3. docs and shared assets
-4. base blueprint
-5. runnable `00-base-admin`
-6. seed template scaffolds
-7. validation and handoff
+1. 读取治理与记忆文件
+2. 盘点文档类文件和英文残留
+3. 重写根级文档
+4. 重写 `docs/`、`shared/`、`blueprints/`
+5. 重写 `projects/` 下的说明文档
+6. 同步数据库与 Git 状态说明
+7. 最终一致性搜索
+8. 提交并推送
 
-## Current Assumptions
+## 当前假设
 
-- local JDK 21 can build Java 17-targeted code via Maven `release=17`
-- local quick-start may use H2 while keeping MySQL as the default target database for real template evolution
-- seed template scaffolds can be documentation-first if full implementation would compromise baseline quality
+- 代码实现状态以仓库当前文件与已验证结果为准
+- 远程仓库已经配置且当前网络/认证可用
+- 本地 MySQL 数据库已按 `designexample_*` 规则完成初始化
 
-## Self-Correction Trigger
+## 自我修正规则
 
-If the repo starts accumulating duplicate structures, topic-specific naming in shared assets, or inconsistent architectures between projects, pause expansion and repair the shared baseline first.
+若发现以下问题，立即停下并修复：
+
+- 文档之间状态互相矛盾
+- 英文残留破坏整体中文阅读体验
+- 项目 README 与真实实现不一致
+- 路径、项目名、模块名仍有复制残留

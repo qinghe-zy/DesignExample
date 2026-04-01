@@ -1,90 +1,78 @@
 # Plan
 
-## Current Phase
+## 当前阶段
 
-Continuation Phase 6 complete: validation, documentation sync, and continuation milestone commits established
+最终清理与中文化阶段进行中：统一全仓库文档语言、修复文档描述偏差、清理残留引用、同步 Git 与数据库说明。
 
-## Continuation Milestones
+## 本轮里程碑
 
-### Milestone 1: Inspect Existing State And Refresh Memory
+### 里程碑 1：盘点现状
 
-- verify current repo state and project list
-- read existing memory and rule files
-- update continuation goals in repo memory files
+- 读取根级治理文件与过程记忆文件
+- 盘点仓库中的文档类文件
+- 搜索英文残留、错误路径、复制痕迹、过时描述
 
-Acceptance criteria:
+验收条件：
 
-- continuation assumptions are verified against the repo
-- Prompt.md and Plan.md reflect the continuation mission
+- 已确认当前仓库真实状态
+- 已锁定需要中文化与修复的文档范围
 
-### Milestone 2: Student Management Deepening
+### 里程碑 2：根级文档中文化
 
-- [x] create concrete backend/frontend code for student-management
-- [x] add 2-4 representative business modules
-- [x] provide SQL init, startup guide, and validation commands
+- 中文重写根级 README、治理文档、过程记忆文档
+- 保证根级术语统一
+- 同步当前真实状态、数据库状态、Git 状态
 
-Acceptance criteria:
+验收条件：
 
-- project is materially beyond documentation-only scaffolding
-- best-effort build validation is attempted and documented
+- 根级重要文档全部以中文为主
+- 根级描述彼此不冲突
 
-### Milestone 3: Library Management Deepening
+### 里程碑 3：docs / shared / blueprints 中文化
 
-- [x] create concrete backend/frontend code for library-management
-- [x] add representative catalog/reader/borrow modules
-- [x] provide SQL init, startup guide, and validation commands
+- 重写 `docs/` 下的总览与指南文档
+- 重写 `shared/` 下的规范与说明文档
+- 重写 `blueprints/` 下的蓝图说明文档
 
-Acceptance criteria:
+验收条件：
 
-- project is materially beyond documentation-only scaffolding
-- best-effort build validation is attempted and documented
+- 共享规范与蓝图说明全部中文化
+- 路径、术语、分层说明与当前仓库一致
 
-### Milestone 4: Exam System Deepening
+### 里程碑 4：projects 文档中文化与一致性修复
 
-- [x] create concrete backend/frontend code for exam-system
-- [x] add representative question/paper/result modules
-- [x] provide SQL init, startup guide, and validation commands
+- 重写 `projects/README.md`
+- 重写 `00-base-admin` 及 10 个种子项目的 README、后端/前端 README、模块说明、扩展说明、启动说明
+- 修复项目文档中的英文残留、错误引用与过时状态描述
 
-Acceptance criteria:
+验收条件：
 
-- project is materially beyond documentation-only scaffolding
-- best-effort build validation is attempted and documented
+- 三个重点项目说明完整且中文化
+- 七个其余项目说明统一且诚实反映当前状态
 
-### Milestone 5: Strengthen Remaining Seven Seeds
+### 里程碑 5：Git / 数据库说明同步与最终交接
 
-- [x] add backend/frontend structure and at least one representative business module scaffold to each remaining seed
-- [x] add startup guidance and inheritance notes where still missing
+- 同步 `.gitignore`、Git 推送状态、数据库初始化状态说明
+- 更新 Documentation、CHANGELOG、HANDOFF
+- 提交并推送最终清理结果
 
-Acceptance criteria:
+验收条件：
 
-- every fixed seed project has concrete module/file structure beyond empty shells
-- docs and SQL baselines remain consistent with the shared base
+- git 工作树干净
+- 远程状态有明确记录
+- 数据库初始化与验证结果有明确记录
 
-### Milestone 6: Validation, Shared Refinement, Git, And Handoff
-
-- [x] validate changed projects
-- [x] extract any clearly repeated shared improvements
-- [x] create milestone commits and update handoff
-
-Acceptance criteria:
-
-- validation results documented
-- git state is reviewable
-- final handoff clearly describes runnable vs partial work across all changed projects
-
-## Validation Commands
+## 本轮重点检查项
 
 - `git status --short --branch`
-- `Get-ChildItem projects | Select-Object -ExpandProperty Name`
-- `mvn -q -DskipTests package`
-- `mvn -q test`
-- `npm.cmd install`
-- `npm.cmd run build`
-- `Get-ChildItem -Recurse`
+- 全仓库搜索英文残留与错误路径
+- `.gitignore` 是否覆盖本地生成物与本地数据库导出物
+- 重点项目启动/验证说明是否与当前代码一致
+- GitHub 远程是否已经包含最终代码
 
-## Current Risks
+## 当前风险
 
-- Windows PowerShell policy blocks direct `.ps1` execution and `npm.ps1`, so unattended commands use inline PowerShell logic and `npm.cmd`
-- top three seed projects currently need real implementation depth, not just richer docs
-- remaining seven projects need code/module scaffolds without fragmenting the architecture
-- frontend bundle size warning exists for `00-base-admin` and may also appear in derived projects if they inherit the same bundling pattern
+- 文档量大，容易出现局部漏改
+- 历史文档中存在英文和旧描述混杂
+- 项目级 README、HANDOFF、Documentation 之间容易出现状态不一致
+- 本地数据库说明如果不同步，容易误导后续使用者

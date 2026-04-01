@@ -1,11 +1,11 @@
-# Inheritance Notes
+# 继承说明
 
-## Shared Base Relationship
+## 当前继承关系
 
-- shared auth and RBAC conventions come from ../../shared/conventions
-- current base blueprint comes from ../../blueprints/base-admin-template
-- current runnable reference comes from ../../projects/00-base-admin
+- 共享规范来自 ../../shared/
+- 基础蓝图来自 ../../blueprints/base-admin-template/
+- 可运行参考来自 ../../projects/00-base-admin/
 
-## Business Focus
+## 当前建议
 
-Mall System currently prioritizes: products, categories, orders, customers, inventory.
+在继续推进时，应优先继承基础底座已有能力，而不是从零重搭认证和系统管理。

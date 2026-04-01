@@ -1,27 +1,15 @@
-# Extension Points Checklist
+# 蓝图扩展点清单
 
-Use this checklist when evolving the base admin blueprint or creating a new project from it.
+使用基础管理端蓝图时，应重点保留以下扩展点：
 
-## Core Baseline
+- 文件上传策略
+- 操作日志策略
+- 图表 / 统计能力
+- 数据字典能力
+- 更细粒度权限能力
 
-- auth flow present
-- user/role/menu baseline present
-- dashboard baseline present
-- at least one CRUD module present
+当某个项目在这些方向明显深化后，应同步：
 
-## Extension Points To Keep Visible
-
-- file upload strategy
-- operation log design
-- chart/statistics design
-- export/import hooks
-- dictionary/status management
-- data-scope or multi-role security growth
-
-## Documentation Expectation
-
-When a project extends one of these areas, update:
-
-- project README
-- relevant docs under `shared/` if the pattern becomes reusable
-- blueprint notes if the extension changes the recommended baseline
+- 项目 README
+- 共享规范文档
+- 蓝图说明文档

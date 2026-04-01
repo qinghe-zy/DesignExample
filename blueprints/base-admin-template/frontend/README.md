@@ -1,6 +1,6 @@
-# Frontend Blueprint Structure
+# 前端蓝图说明
 
-## Current Recommended Structure
+## 当前推荐结构
 
 ```text
 frontend/
@@ -13,40 +13,21 @@ frontend/
 │  ├─ styles/
 │  ├─ utils/
 │  └─ views/
-│     ├─ login/
-│     ├─ dashboard/
-│     ├─ system/
-│     └─ <business-module>/
 ├─ index.html
 ├─ package.json
 └─ vite.config.ts
 ```
 
-## Baseline Screens
+## 当前能力基线
 
-- login page
-- admin layout with sidebar and header
-- dashboard overview
-- user list
-- role list
-- menu list
-- one representative CRUD page
+- 登录页
+- 管理端布局
+- 仪表盘
+- 系统管理页面
+- 至少一个代表业务模块页面
 
-## Current UX Direction
+## 当前界面要求
 
-The current base admin baseline should feel:
-
-- clear
-- modern
-- stable
-- easy for future student projects to extend
-
-It should avoid generic demo clutter while staying maintainable for long-term reuse.
-
-## Current Extension Points
-
-- upload widgets
-- richer dashboards and chart widgets
-- dictionary-driven form controls
-- more advanced route/permission composition
-- reusable CRUD page shells
+- 保持管理端风格统一
+- 避免无意义炫技
+- 便于后续项目继续派生

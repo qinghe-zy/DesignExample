@@ -1,137 +1,147 @@
-# Handoff
+# HANDOFF
 
-## What Is Complete
+## 本轮完成内容
 
-- root governance files exist and are meaningful
-- durable run-memory files exist in the repo root
-- root README, architecture docs, workflow guides, and catalog docs exist
-- shared conventions, specs, UI pattern notes, and blueprint docs exist
-- `projects/00-base-admin` exists with backend and frontend implementation
-- all ten fixed seed project folders exist with README, module summary, extension notes, and SQL/schema baseline
-- the three highest-priority seeds now have materially deeper backend/frontend/sql implementations
-- the remaining seven seeds now include backend/frontend module scaffolds, startup guidance, and inheritance notes
-- local MySQL databases have been initialized for all project contexts using the `designexample_*` naming convention
-- the four most complete backend projects can start their Spring test context against MySQL
-- the finished repository state is visible on GitHub remote `main` and preserved on `codex/bootstrap-template-factory`
+本轮属于最终清理、中文化与一致性修复阶段，已完成以下工作：
 
-## What Is Runnable Now
+1. 根级治理与记忆文档中文化
+2. `docs/`、`shared/`、`blueprints/`、`projects/` 下主要说明文档中文化
+3. 修复文档与实现不一致的问题
+4. 修复数据库说明、Git 说明与实际状态不一致的问题
+5. 修复 MySQL 初始化脚本中的不兼容类型
+6. 完成远程推送并确认 GitHub 已有可见代码
 
-- `projects/00-base-admin/backend`
-- `projects/00-base-admin/frontend`
-- `projects/student-management/backend`
-- `projects/student-management/frontend`
-- `projects/library-management/backend`
-- `projects/library-management/frontend`
-- `projects/exam-system/backend`
-- `projects/exam-system/frontend`
+## 已完成中文化的文档范围清单
 
-Current validated commands:
+### 根级文档
 
-- `mvn -q -DskipTests package`
-- `mvn -q test`
-- `npm.cmd install`
-- `npm.cmd run build`
-- `SPRING_PROFILES_ACTIVE=mysql mvn -q test` with local MySQL environment variables for the four most complete backend projects
+- [x] `AGENTS.md`
+- [x] `PROJECT_STANDARDS.md`
+- [x] `TEMPLATE_FACTORY_METHOD.md`
+- [x] `Prompt.md`
+- [x] `Plan.md`
+- [x] `Implement.md`
+- [x] `Documentation.md`
+- [x] `DECISIONS.md`
+- [x] `CHANGELOG.md`
+- [x] `HANDOFF.md`
+- [x] `README.md`
 
-## What Is Partially Implemented
+### docs/
 
+- [x] `docs/README.md`
+- [x] `docs/architecture/workspace-architecture.md`
+- [x] `docs/guides/development-workflow.md`
+- [x] `docs/guides/how-to-create-a-new-template.md`
+- [x] `docs/catalog/template-catalog.md`
+
+### blueprints/
+
+- [x] `blueprints/README.md`
+- [x] `blueprints/base-admin-template/README.md`
+- [x] `blueprints/base-admin-template/backend/README.md`
+- [x] `blueprints/base-admin-template/frontend/README.md`
+- [x] `blueprints/base-admin-template/checklists/extension-points.md`
+
+### shared/
+
+- [x] `shared/README.md`
+- [x] `shared/conventions/*`
+- [x] `shared/specs/*`
+- [x] `shared/ui-patterns/*`
+- [x] `shared/notes/module-design-notes.md`
+
+### projects/
+
+- [x] `projects/README.md`
+- [x] `projects/00-base-admin/README.md`
+- [x] 10 个种子项目的 `README.md`
+- [x] 10 个种子项目的 `backend/README.md`
+- [x] 10 个种子项目的 `frontend/README.md`
+- [x] 项目下 `docs/` 中的说明文档
+
+## 已修复的不一致问题
+
+- 根级 README、Documentation、HANDOFF、项目 README 之间的状态描述已统一
+- “哪些项目已可运行、哪些项目仍是脚手架” 的表述已统一
+- Git 推送状态与远程实际状态已同步
+- 数据库初始化状态与真实本地验证结果已同步
+- 项目 README 中的启动说明、验证说明、数据库说明已统一
+- 修复了 MySQL SQL 中 `CLOB` 类型导致的初始化失败问题
+
+## 三个重点项目当前状态
+
+### 1. student-management
+
+当前达到：
+
+- 后端可构建
+- 后端测试可通过
+- 前端可安装、可构建
+- MySQL profile 测试上下文可启动
+- 已有核心模块：
+  - 学生档案
+  - 班级/专业
+  - 成绩管理
+  - 请假/违纪记录
+
+### 2. library-management
+
+当前达到：
+
+- 后端可构建
+- 后端测试可通过
+- 前端可安装、可构建
+- MySQL profile 测试上下文可启动
+- 已有核心模块：
+  - 图书目录
+  - 读者管理
+  - 借还记录
+
+### 3. exam-system
+
+当前达到：
+
+- 后端可构建
+- 后端测试可通过
+- 前端可安装、可构建
+- MySQL profile 测试上下文可启动
+- 已有核心模块：
+  - 题库
+  - 试卷管理
+  - 考试记录/成绩结果
+
+## 其余七个项目当前状态
+
+以下项目当前为“强化脚手架状态”：
+
+- `mall-system`
 - `blog-cms-forum`
-- `course-learning-platform`
-- `erp-inventory-sales`
 - `hotel-booking`
 - `hr-payroll-attendance`
-- `mall-system`
+- `course-learning-platform`
 - `property-rental-dorm`
+- `erp-inventory-sales`
 
-The remaining seven seeds are no longer empty scaffolds, but they are not yet promoted to the same runnable depth as `00-base-admin` or the top three derivatives.
+它们当前已具备：
 
-## Which Projects Are Deepest
+- 项目 README
+- 后端 README
+- 前端 README
+- 模块说明
+- 扩展说明
+- 启动建议
+- 继承说明
+- SQL/schema 基线
+- 至少一个代表业务模块的前后端文件骨架
 
-1. `student-management`
-2. `library-management`
-3. `exam-system`
+但它们尚未达到与三个重点项目相同的运行深度。
 
-These are the strongest derived implementations in this continuation run.
+## 数据库状态
 
-## Key Decisions
+### 本地数据库命名规则
 
-- keep one strong shared admin baseline first
-- preserve the requested fixed seed folder names exactly
-- use H2 for low-friction local validation while keeping MySQL-oriented SQL assets
-- prefer documented shared conventions before extracting immature shared code
-- derive the top three seeds directly from the validated base-admin project before widening breadth
-
-## Validation Results
-
-- backend package: success
-- backend test context: success
-- frontend install: success
-- frontend build: success with chunk-size warning
-- student-management backend package/test: success
-- student-management frontend install/build: success with chunk-size warning
-- library-management backend package/test: success
-- library-management frontend install/build: success with chunk-size warning
-- exam-system backend package/test: success
-- exam-system frontend install/build: success with chunk-size warning
-- 00-base-admin backend MySQL-profile test context: success
-- student-management backend MySQL-profile test context: success
-- library-management backend MySQL-profile test context: success
-- exam-system backend MySQL-profile test context: success
-- all `designexample_*` MySQL databases created and table-verified locally
-- GitHub push to `origin/codex/bootstrap-template-factory`: success
-- GitHub push to `origin/main`: success
-- `git ls-remote --heads origin`: confirmed remote contains code on both branches
-
-## Known Issues
-
-- `00-base-admin` frontend bundle is currently large enough to trigger Vite's chunk-size warning
-- npm reported 2 moderate vulnerabilities after install; they were not auto-fixed during this run
-- the top three derivatives still need browser/API smoke checks to claim end-to-end runtime verification
-- the remaining seven seeds are still scaffold-first rather than runnable
-- `git remote show origin` hit an SSL/TLS handshake issue once, but push and `ls-remote` verification still succeeded
-
-## Git Status And Push
-
-Git was initialized during this run.
-
-- current branch: `codex/bootstrap-template-factory`
-- working tree: clean
-- commits created:
-  - `53f91b4` chore: initialize template factory governance
-  - `15da901` feat: add runnable base admin baseline
-  - `f41d3e6` feat: scaffold initial seed template projects
-  - `ed5cd5f` docs: finalize unattended run handoff
-  - `db513c2` docs: refresh final git metadata
-  - `ea90011` feat: deepen top three seed projects
-  - `c882e5c` feat: strengthen remaining seed project scaffolds
-  - `69b2dcf` docs: sync continuation handoff state
-
-Remote `origin` is configured as `https://github.com/qinghe-zy/DesignExample.git`.
-
-Push succeeded in this run:
-
-- `codex/bootstrap-template-factory` -> `origin/codex/bootstrap-template-factory`
-- `codex/bootstrap-template-factory` -> `origin/main`
-
-If a later manual push is still needed, the next operator can run:
-
-```powershell
-cd D:\Projectexample
-git remote add origin <remote-url>
-git push -u origin codex/bootstrap-template-factory
-```
-
-## Recommended First Acceptance Checks
-
-1. Open and review [README.md](/D:/Projectexample/README.md), [Plan.md](/D:/Projectexample/Plan.md), and [Documentation.md](/D:/Projectexample/Documentation.md).
-2. Build `projects/00-base-admin/backend` and `projects/00-base-admin/frontend` using the documented commands.
-3. Build `projects/student-management`, `projects/library-management`, and `projects/exam-system` using the documented commands in each project README.
-4. Inspect the remaining seven seed project folders to confirm the representative module scaffolds, startup guides, and inheritance notes are consistent.
-5. Review git history and final branch status after the commit/push step is complete.
-
-## Database Summary
-
-Created and initialized locally:
+统一采用：
 
 - `designexample_base_admin`
 - `designexample_student_management`
@@ -145,17 +155,75 @@ Created and initialized locally:
 - `designexample_property_rental_dorm`
 - `designexample_erp_inventory_sales`
 
-Representative seed-data verification succeeded for:
+### 已完成的数据库工作
 
-- `designexample_base_admin`
-- `designexample_student_management`
-- `designexample_library_management`
-- `designexample_exam_system`
+- 全部数据库已创建
+- 4 个重点数据库项目已导入完整初始化 SQL
+- 7 个强化脚手架项目已导入 schema 基线
+- 4 个重点项目已完成 MySQL profile 下的后端测试上下文验证
 
-## Suggested Next Implementation Order
+### 已验证的数据库项目
 
-1. browser/API smoke-test `student-management`, `library-management`, and `exam-system`
-2. promote `mall-system`
-3. promote `blog-cms-forum`
-4. promote `course-learning-platform`
-5. promote `erp-inventory-sales`
+- `00-base-admin`
+- `student-management`
+- `library-management`
+- `exam-system`
+
+### 其余项目数据库状态
+
+其余 7 个项目当前处于：
+
+- schema 已建立
+- 可继续在此基础上追加完整业务初始化
+- 当前尚未推进到同等后端运行验证深度
+
+## Git 状态与推送状态
+
+### 当前 Git 状态
+
+- 当前分支：`codex/bootstrap-template-factory`
+- 当前工作树：干净
+
+### 远程推送结果
+
+已成功推送到：
+
+- `origin/codex/bootstrap-template-factory`
+- `origin/main`
+
+远程仓库：
+
+- [https://github.com/qinghe-zy/DesignExample.git](https://github.com/qinghe-zy/DesignExample.git)
+
+GitHub 远程已包含当前代码，可直接查看。
+
+## 本轮仍未解决但不阻塞交付的问题
+
+- 三个重点项目仍建议补做浏览器/API 端到端烟雾验证
+- 其余 7 个项目仍属于强化脚手架状态，不应被误判为完全可运行
+- 部分前端项目构建存在 chunk size 警告，但不影响当前构建通过
+- npm 依赖仍提示 moderate 漏洞，本轮未自动升级依赖以避免引入不可控变化
+
+## 最终验收建议
+
+建议人工优先检查：
+
+1. 根级 README、Documentation、HANDOFF 是否口径一致
+2. GitHub `main` 分支是否可直接看到完整仓库内容
+3. `00-base-admin`、`student-management`、`library-management`、`exam-system` 的 README 与启动说明是否清晰
+4. 本地 MySQL 中 `designexample_*` 数据库是否齐全
+5. 三个重点项目是否需要继续做浏览器/API 端到端验证
+
+## 保留为非中文的文件清单
+
+以下文件未做中文化，属于有意保留：
+
+- `node_modules/` 下第三方依赖自带 README、LICENSE、CHANGELOG
+- `target/` 下测试报告与构建产物
+- 代码文件、配置文件中的类名、包名、技术标识
+
+原因：
+
+- 它们不是仓库对外说明文档
+- 中文化会破坏第三方依赖原始内容或构建产物的真实性
+- 对工程接受与后续维护没有实际收益

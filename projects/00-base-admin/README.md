@@ -1,42 +1,45 @@
 # 00-base-admin
 
-`00-base-admin` is the current runnable baseline project for the Projectexample template factory.
+`00-base-admin` 是当前模板工厂的基础底座项目。
 
-It is intentionally minimal and reusable. The goal is to prove the shared stack, baseline module boundaries, and CRUD rhythm before generating richer business templates.
+## 项目定位
 
-## Current Scope
+它用于提供统一的管理端起点，包括：
 
-### Backend
+- 登录 / 登出
+- JWT + RBAC 基线
+- 用户 / 角色 / 菜单
+- 仪表盘
+- 通用 CRUD 模式
+- 本地 H2 快速验证路径
+- MySQL 初始化与 profile 验证路径
+
+## 当前实现范围
+
+### 后端
 
 - Spring Boot 3
-- Java 17 target
+- Java 17 目标版本
 - MyBatis-Plus
-- JWT auth skeleton
-- unified response wrapper
-- global exception handling
-- dashboard overview API
-- system user/role/menu list APIs
-- representative notice CRUD API
+- 统一响应结构
+- 全局异常处理
+- JWT 认证骨架
+- 仪表盘接口
+- 系统管理接口
+- 通知 CRUD 示例
 
-### Frontend
+### 前端
 
 - Vue 3 + TypeScript + Vite
-- Element Plus admin shell
-- Pinia auth store
-- Vue Router protected routes
-- login page
-- dashboard page
-- user/role/menu module skeleton pages
-- notice CRUD page
+- Element Plus 管理端壳层
+- Pinia 认证状态管理
+- Vue Router 保护路由
+- 登录页
+- 仪表盘
+- 用户 / 角色 / 菜单页面
+- 通知 CRUD 页面
 
-## Current Credentials
-
-- username: `admin`
-- password: `admin123`
-
-These are seed credentials for local baseline validation only. Replace them when deriving real projects.
-
-## Current Folder Structure
+## 当前目录结构
 
 ```text
 projects/00-base-admin/
@@ -46,9 +49,9 @@ projects/00-base-admin/
    └─ mysql/
 ```
 
-## Startup Guide
+## 启动方式
 
-### Backend
+### 后端
 
 ```powershell
 cd D:\Projectexample\projects\00-base-admin\backend
@@ -56,9 +59,9 @@ mvn -q -DskipTests package
 mvn spring-boot:run
 ```
 
-Current default local startup uses an H2 file database for low-friction validation while keeping MySQL initialization assets under `sql/mysql/`.
+默认本地快速启动使用 H2 文件数据库。
 
-Optional MySQL-profile verification:
+可选 MySQL profile 验证：
 
 ```powershell
 $env:MYSQL_HOST='localhost'
@@ -69,7 +72,7 @@ $env:SPRING_PROFILES_ACTIVE='mysql'
 mvn -q test
 ```
 
-### Frontend
+### 前端
 
 ```powershell
 cd D:\Projectexample\projects\00-base-admin\frontend
@@ -77,35 +80,36 @@ npm.cmd install
 npm.cmd run dev
 ```
 
-Default frontend dev URL:
+默认地址：
 
-- [http://localhost:5173](http://localhost:5173)
+- 前端：`http://localhost:5173`
+- 后端：`http://localhost:8080`
 
-Default backend URL:
+## 数据库说明
 
-- [http://localhost:8080](http://localhost:8080)
+- MySQL 初始化脚本：`sql/mysql/init.sql`
+- 本地数据库命名建议：`designexample_base_admin`
+- 已完成本地 MySQL 初始化与连接验证
 
-## Validation Commands
+## 当前验证情况
 
-```powershell
-cd D:\Projectexample\projects\00-base-admin\backend
-mvn -q -DskipTests package
+已验证：
 
-cd D:\Projectexample\projects\00-base-admin\frontend
-npm.cmd install
-npm.cmd run build
-```
+- 后端构建
+- 后端测试
+- 前端安装
+- 前端构建
+- MySQL profile 测试上下文
 
-Validation outcomes for the current unattended run are recorded in [Documentation.md](/D:/Projectexample/Documentation.md) and will be summarized in [HANDOFF.md](/D:/Projectexample/HANDOFF.md).
+## 已知限制
 
-## Current Extension Points
+- 前端生产构建仍有 chunk size 警告
+- 尚未补做浏览器/API 端到端烟雾验证
 
-- file upload handling
-- operation log persistence
-- chart/statistics enrichment
-- future data dictionaries
-- richer role and permission rules
+## 后续扩展方向
 
-## Why This Project Exists
-
-This project is the baseline proof that the factory can produce a coherent admin starter. It is not the final shape of all future template families.
+- 文件上传
+- 操作日志
+- 图表统计
+- 数据字典
+- 更细粒度权限模型

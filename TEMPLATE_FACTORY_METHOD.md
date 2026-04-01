@@ -1,284 +1,164 @@
-\# TEMPLATE\_FACTORY\_METHOD.md
+# TEMPLATE_FACTORY_METHOD.md
 
+## 目标
 
+构建一个可复用、可扩展、可长期维护的学术类项目模板工厂。
 
-\## Goal
+该工厂应支持课程设计、毕业设计等高频管理系统的反复生成与持续演进，并尽量减少重复劳动。
 
-Build a reusable, extensible academic-project template factory.
+## 核心原则
 
+一个稳定基础底座，多类业务变体，持续面向未来增长。
 
+不要重复从零创建互不相关的项目。
 
-The factory should support repeated and continuous generation of high-frequency course-design / graduation-project systems with minimal rework and clear room for future expansion.
+应采用的方式是：
 
+1. 先定义稳定基础架构
+2. 定义共享能力
+3. 定义可插入的业务模块槽位
+4. 定义未来模板类别的扩展策略
+5. 用“共享底座 + 业务模块 + 主题命名”组合生成新项目
 
+## 设计心态
 
-\## Core Principle
+应把仓库视为一个持续演进的平台，而不是一次性批处理结果。
 
-One stable base, multiple business variants, continuous future growth.
+这意味着：
 
+- 当前蓝图只是起点
+- 当前目录只是现阶段种子
+- 当前项目只是当前实例
+- 未来新增是预期内行为，而不是例外
 
+## 标准交付层次
 
-Do not repeatedly create unrelated projects from scratch.
+### Layer A：工厂层
 
-Instead:
+治理整个仓库的根级资产：
 
-1\. define a stable base architecture
+- 方法论文档
+- 标准文档
+- 模板目录
+- 脚本
+- 蓝图定义
+- 演进说明
 
-2\. define shared capabilities
+### Layer B：蓝图层
 
-3\. define business-module slots
+可复用的起始结构与架构说明：
 
-4\. define extension strategy for future template categories
+- 后端蓝图
+- 前端蓝图
+- 基础管理端蓝图
+- 通用 CRUD 蓝图
+- 通用认证蓝图
+- 后续新增蓝图
 
-5\. generate new templates by combining shared base + business modules + topic-specific naming
+### Layer C：项目层
 
+具体项目实例，例如：
 
+- `projects/00-base-admin`
+- `projects/student-management`
+- `projects/library-management`
 
-\## Design Mindset
+项目集合本身是开放的，未来可继续增长。
 
-Treat the workspace as an evolving platform, not a closed batch task.
+### Layer D：模块层
 
+项目中的业务模块，例如：
 
+- 学生模块
+- 成绩模块
+- 借阅模块
+- 试卷模块
+- 库存模块
 
-This means:
+## 模板创建策略
 
-\- current blueprints are starting points
+创建新模板时，推荐顺序为：
 
-\- current catalogs are initial seeds
+1. 从基础管理端蓝图开始
+2. 保留认证 / 仪表盘 / 用户 / 角色 / 菜单基线
+3. 增加一个或多个业务模块
+4. 更新文档和数据库结构
+5. 标注扩展点
+6. 避免写入会阻碍未来演进的硬编码假设
 
-\- current project folders are current examples
+## 第一阶段范围
 
-\- future additions are expected, not exceptional
+在大规模铺开业务模板之前，优先完成：
 
+- 根仓库结构
+- 工程标准
+- 方法论文档
+- 模板目录种子
+- 项目生成说明或辅助脚本
+- 一个可运行的基础管理端项目
 
+这些属于初始底座，而不是仓库未来的全部范围。
 
-\## Standard Delivery Layers
+## 初始模板种子
 
+初始种子模板可包括：
 
+- 学生管理
+- 图书馆管理
+- 在线考试系统
+- 商城系统
+- 博客 / CMS / 论坛
+- 酒店预订
+- HR / 薪资 / 考勤
+- 课程学习平台
+- 物业 / 宿舍 / 租赁管理
+- ERP / 库存 / 销售
 
-\### Layer A: Factory Layer
+它们是当前种子，不是永久封闭清单。
 
-Root-level assets that govern the whole workspace:
+每个目录项至少应记录：
 
-\- methodology docs
+- 模板名称
+- 典型业务模块
+- 复用率
+- 难度
+- 推荐演进路径
+- 可能扩展点
 
-\- standards docs
+## 复用策略
 
-\- catalog
+如果某项能力在 3 个以上项目中反复出现，就应考虑抽取为共享能力或蓝图能力。
 
-\- scripts
+如果当前还不够稳定，不必强行抽代码，但至少应把结构与文档准备好。
 
-\- blueprint definitions
+## 推荐推进顺序
 
-\- evolution notes
+1. 基础底座 `00-base-admin`
+2. 一到两个高复用管理类项目
+3. 更多从稳定底座派生的业务项目
+4. 后续再继续抽取共享能力与改进脚本
 
+## 决策原则
 
+当需求不完整时：
 
-\### Layer B: Blueprint Layer
+- 做最小合理假设
+- 记录该假设
+- 继续推进
+- 不因可推断问题而无谓停滞
+- 避免把临时假设写成永久结构
 
-Reusable starter templates and reusable structural definitions:
+## 面向未来的扩展原则
 
-\- backend blueprint
+模板工厂应始终准备好支持：
 
-\- frontend blueprint
+- 新的业务类别
+- 新的蓝图变体
+- 更深层的共享模块抽取
+- 更好的辅助脚本
+- 更丰富的文档层次
+- 在同一总体技术栈内继续改进前后端实现
 
-\- base admin blueprint
+## 最终目标状态
 
-\- common CRUD blueprint
-
-\- common auth blueprint
-
-\- future blueprints as needed
-
-
-
-\### Layer C: Project Layer
-
-Concrete generated projects, for example:
-
-\- projects/00-base-admin
-
-\- projects/student-management
-
-\- projects/library-management
-
-
-
-The set of project folders is open-ended and may grow later.
-
-
-
-\### Layer D: Module Layer
-
-Business-specific modules added into projects:
-
-\- student module
-
-\- score module
-
-\- borrow module
-
-\- exam paper module
-
-\- inventory module
-
-\- future modules as needed
-
-
-
-\## Template Creation Strategy
-
-When creating a new template:
-
-1\. start from the base admin blueprint
-
-2\. keep auth / dashboard / user / role / menu foundations
-
-3\. add one or more business modules
-
-4\. update docs and schema
-
-5\. list extension points
-
-6\. avoid hard-coding assumptions that block future evolution
-
-
-
-\## First-Stage Scope
-
-Before mass-producing templates, first complete:
-
-\- root repo structure
-
-\- standards
-
-\- methodology
-
-\- template catalog seeds
-
-\- generator guide or helper script
-
-\- one runnable base admin template
-
-
-
-These are the initial foundation steps, not the full future scope.
-
-
-
-\## Initial Template Catalog Seeds
-
-The initial template catalog may include categories such as:
-
-\- student management
-
-\- library management
-
-\- online exam
-
-\- mall system
-
-\- blog/cms/forum
-
-\- hotel booking
-
-\- hr/payroll
-
-\- course learning platform
-
-\- property/dorm/rental
-
-\- erp/inventory/sales
-
-
-
-These are seed categories, not the final complete catalog.
-
-
-
-Each catalog item should record:
-
-\- template name
-
-\- typical modules
-
-\- reuse rate
-
-\- difficulty
-
-\- recommended evolution path
-
-\- likely extension points
-
-
-
-The catalog structure must support future new entries.
-
-
-
-\## Reuse Policy
-
-If a capability appears in 3 or more templates, it should probably be shared or abstracted.
-
-
-
-If a capability is not yet mature enough for extraction, document it as a reuse candidate and keep the structure ready.
-
-
-
-\## Progression Policy
-
-Recommended early progression:
-
-1\. base admin
-
-2\. one or two highly reusable management systems
-
-3\. additional systems generated from the stable base
-
-4\. later refinements to shared capabilities and scripts
-
-
-
-This order may be adjusted later as the workspace evolves.
-
-
-
-\## Decision Policy
-
-When requirements are incomplete:
-
-\- make the smallest reasonable assumption
-
-\- record it
-
-\- move forward
-
-\- do not block progress unnecessarily
-
-\- avoid turning temporary assumptions into rigid permanent structure
-
-
-
-\## Future Expansion Policy
-
-The factory should remain ready for:
-
-\- new business categories
-
-\- new blueprint variants
-
-\- deeper shared module extraction
-
-\- improved scripts
-
-\- documentation growth
-
-\- new frontend or backend refinements within the same overall stack strategy
-
-
-
-\## Final Standard
-
-The workspace should eventually feel like a small internal template platform, not a random folder of student demos and not a closed one-time batch of templates.
-
+随着持续演进，仓库应逐步呈现出“内部模板平台”的形态，而不是随机堆积的学生 demo，更不是一次性封闭交付物。

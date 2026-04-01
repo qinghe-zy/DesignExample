@@ -1,85 +1,105 @@
-# Development Workflow
+# 开发与维护流程
 
-## Purpose
+## 文档目的
 
-This guide defines the current recommended workflow for maintaining and expanding the template factory.
+本文档说明当前仓库推荐的开发、维护与交付流程。
 
-## Standard Working Sequence
+## 标准执行顺序
 
-1. Inspect the current workspace state.
-2. Read the applicable governance and standards files.
-3. Decide whether the task belongs to `docs/`, `shared/`, `blueprints/`, or a concrete project.
-4. Make the smallest reusable change that moves the factory forward.
-5. Verify the affected project or document path.
-6. Update documentation and record extension space if something remains intentionally open.
+1. 检查当前仓库状态
+2. 读取治理文件与过程记忆文件
+3. 判断修改应属于：
+   - `docs/`
+   - `shared/`
+   - `blueprints/`
+   - 某个具体项目
+4. 做最小但有价值的修改
+5. 执行相应验证
+6. 更新 Documentation、CHANGELOG、HANDOFF 等文档
 
-## Choosing Where Work Belongs
+## 何时修改哪一层
 
-### Use `docs/` When
+### 修改 `docs/`
 
-- the rule is for humans first
-- the change affects future decisions across the workspace
-- the asset explains architecture, workflow, catalog, or evolution
+当变更主要面向人类理解时，例如：
 
-### Use `shared/` When
+- 仓库结构说明
+- 工作流程说明
+- 模板创建指南
+- 模板目录说明
 
-- the content is a reusable convention
-- the pattern should guide multiple templates
-- the asset may later evolve into a shared code module
+### 修改 `shared/`
 
-### Use `blueprints/` When
+当变更属于跨项目共用内容时，例如：
 
-- the asset describes or provides a repeatable project skeleton
-- the decision should shape future templates directly
+- 命名规范
+- 响应规范
+- 权限规范
+- 验证清单
+- 派生项目推进清单
 
-### Use `projects/` When
+### 修改 `blueprints/`
 
-- the change belongs to a concrete runnable example
-- the behavior is being proven in code rather than only described
+当变更会影响“项目如何起步”时，例如：
 
-## Current Verification Baseline
+- 基础蓝图结构
+- 蓝图边界
+- 扩展点定义
 
-For non-trivial template work, verify as many of these as apply:
+### 修改某个 `projects/<name>/`
 
-- backend dependency resolution
-- backend compile or package
-- frontend dependency install
-- frontend build
-- key login flow
-- dashboard data load
-- representative CRUD flow
-- docs updated for the relevant path
+当变更只属于具体项目实现时，例如：
 
-If something cannot be verified in the current run, record that gap explicitly.
+- 项目模块代码
+- 项目数据库脚本
+- 项目 README
+- 项目启动说明
 
-## Reuse Decision Rule
+## 当前验证基线
 
-Ask these questions before adding new code:
+对于非平凡修改，尽量执行以下验证中的相关项：
 
-1. Is this already covered by the blueprint?
-2. Will this likely appear in multiple future templates?
-3. Is the pattern mature enough to standardize now?
+- 后端构建
+- 后端测试
+- 前端安装
+- 前端构建
+- 数据库初始化
+- MySQL profile 测试上下文
+- 文档一致性检查
 
-Preferred outcomes:
+若因环境限制无法完成，应明确记录：
 
-- shared convention if it is clearly cross-project
-- blueprint update if it defines the starter baseline
-- project-local implementation if it is still immature or business-specific
+- 实际执行了什么命令
+- 哪里失败
+- 是代码问题还是环境问题
+- 后续手动步骤是什么
 
-## Current Change Management Advice
+## 复用判断规则
 
-- prefer incremental updates over large speculative abstractions
-- keep folder names consistent and future-friendly
-- document assumptions instead of silently freezing them into the repo
-- avoid random demo artifacts that do not strengthen the factory
+新增内容前，先问三个问题：
 
-## Current Delivery Expectations
+1. 它是否已经被蓝图覆盖？
+2. 它是否很可能出现在多个项目里？
+3. 它是否已经足够稳定，值得抽到共享层？
 
-When finishing a meaningful work cycle, capture:
+优先结果：
 
-- what changed
-- why the change belongs in that layer
-- how it was verified
-- what is still intentionally open for future additions
+- 明显共性 -> 放入 `shared/`
+- 明显起步结构 -> 放入 `blueprints/`
+- 仍然业务化 -> 先留在项目内
 
-This helps future contributors extend the factory without reverse-engineering intent from code alone.
+## 当前文档维护要求
+
+每完成一次重要修改，应至少更新：
+
+- `Documentation.md`
+- `CHANGELOG.md`
+- `HANDOFF.md`
+
+如果涉及关键工程取舍，还应更新：
+
+- `DECISIONS.md`
+
+## 当前交付标准
+
+本仓库的交付不以“文件存在”为准，而以“状态可解释、可验证、可继续推进”为准。

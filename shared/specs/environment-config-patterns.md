@@ -1,32 +1,22 @@
-# Environment And Config Patterns
+# 环境与配置模式
 
-## Backend
+## 后端
 
-The current backend baseline should separate:
+当前推荐：
 
-- default local-dev-friendly settings in `application.yml`
-- environment-specific overrides in profile files when needed
-- secrets through environment variables or later secret management instead of hard-coded production values
+- 默认配置文件提供本地低门槛启动路径
+- 使用 profile 区分本地 H2 与本地 MySQL 验证
+- 口令、主机、端口优先从环境变量读取
 
-## Frontend
+## 前端
 
-The current frontend baseline should use Vite environment variables for:
+当前推荐：
 
-- API base URL
-- future feature flags
-- optional analytics or upload endpoints
+- API 基地址通过 Vite 环境变量可覆盖
+- 本地默认值保持简单、可直接启动
 
-## Current Recommended Approach
+## 当前原则
 
-- keep local startup friction low
-- keep production credentials out of source control
-- document every non-obvious config variable in project README files
-
-## Future Growth
-
-This area can later define:
-
-- profile naming strategy
-- container/environment examples
-- CI validation variables
-- multi-project local orchestration conventions
+- 降低本地验证门槛
+- 避免把本地敏感信息硬编码成生产默认值
+- 配置说明必须写进项目 README

@@ -1,13 +1,3 @@
-# Implementation Roadmap
+# 推进路线
 
-## Why This Seed Is Higher Priority
-
-Exam System has one of the strongest reuse profiles in the initial catalog, so it should be among the first fully derived templates after the exam system project is accepted.
-
-## Recommended Build Path
-
-1. copy the exam system system baseline
-2. rename and wire the first business module
-3. add representative business statistics to the dashboard
-4. only then add topic-specific advanced workflows
-
+当前项目已具备考试核心资产管理能力，后续应重点补全考试安排、监考、评分规则与统计分析。

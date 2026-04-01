@@ -1,23 +1,19 @@
-# Module Summary
+# 模块说明
 
-## Recommended Current Modules
+## 当前已实现模块
 
-- question bank
-- papers
-- exam plans
-- submissions
-- grading
+- 题库
+- 试卷管理
+- 考试记录与结果
 
-## Inheritance From Shared Base
+## 与基础底座的关系
 
-- inherit auth and RBAC from the exam system template
-- inherit dashboard shell and system baseline modules
-- reuse the current CRUD page conventions
-- keep topic-specific naming inside project-local business modules
+- 认证与权限基线继续继承自 `00-base-admin`
+- 系统管理模块继续继承自 `00-base-admin`
+- 当前项目主要负责考试业务域扩展
 
-## Suggested First Implementation Order
+## 当前推进建议
 
-1. preserve login/dashboard/system baseline
-2. implement the first representative business module
-3. add reporting, import/export, and advanced workflows only after the core CRUD path is stable
-
+1. 在现有题库与试卷能力上补足考试安排
+2. 再增加评分规则、分析报表、自动组卷等能力
+3. 稳定后再考虑抽取共享模式

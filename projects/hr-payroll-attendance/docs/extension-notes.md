@@ -1,14 +1,7 @@
-﻿# Extension Notes
+# 扩展说明
 
-## Likely Extension Points
+## 当前可扩展方向
 
-- approval workflow
-- salary calculation
-- document archive
-
-## Guardrails
-
-- do not replace the shared admin baseline without documenting the reason
-- prefer extracting stable shared patterns back into shared/ or a future blueprint
-- keep SQL naming and frontend/backend layering consistent with the current factory standards
-
+- 在代表模块基础上补齐其余核心业务模块
+- 引入统计、审批、导入导出等通用能力
+- 若出现稳定重复模式，可进一步抽取到共享层

@@ -1,50 +1,30 @@
-# Base Admin Template Blueprint
+# 基础管理端蓝图
 
-## Purpose
+## 蓝图定位
 
-This blueprint defines the current standard starting point for management-oriented academic systems in the factory.
+`base-admin-template` 是当前管理端类项目的基础蓝图。
 
-It is designed to be reused, copied, refined, and eventually expanded with sibling blueprints if future template families need a different baseline.
+它用于为后续项目提供统一起点，而不是限制所有项目最终都长成同一种形态。
 
-## What The Blueprint Covers
+## 当前覆盖范围
 
-- backend layered structure
-- frontend admin shell structure
-- JWT + RBAC skeleton
-- dashboard skeleton
-- system baseline modules: user, role, menu
-- representative CRUD module pattern
-- reserved extension points for upload, logs, and statistics
+- 后端基础分层
+- 前端管理端基础结构
+- JWT + RBAC 基线
+- 仪表盘基线
+- 用户 / 角色 / 菜单基线
+- 通用 CRUD 页面基线
+- 文件上传 / 操作日志 / 图表统计扩展点说明
 
-## Blueprint Layout
+## 当前适用场景
 
-- [backend README](/D:/Projectexample/blueprints/base-admin-template/backend/README.md)
-- [frontend README](/D:/Projectexample/blueprints/base-admin-template/frontend/README.md)
-- [extension-points checklist](/D:/Projectexample/blueprints/base-admin-template/checklists/extension-points.md)
+优先适用于：
 
-## Current Baseline Assumptions
+- 学生管理类系统
+- 图书馆类系统
+- 考试管理类系统
+- 其他以“后台管理”为核心的教学项目
 
-- backend uses Spring Boot 3 with Java 17 target
-- frontend uses Vue 3 + TypeScript + Vite
-- the base experience is an admin-style management interface
-- auth is JWT-based with role and menu concepts available from day one
+## 当前限制
 
-## Recommended Uses
-
-Start from this blueprint when the future project needs:
-
-- an admin login
-- management tables and forms
-- baseline system management
-- standard dashboard metrics
-- one or more CRUD-heavy business modules
-
-## When To Avoid Forcing This Blueprint
-
-If a future template is mainly:
-
-- consumer-facing
-- mobile-first
-- workflow-heavy in a way that breaks the current admin rhythm
-
-then record that mismatch and consider a future sibling blueprint rather than forcing the project into the wrong shape.
+如果某类项目长期明显偏离当前管理端模式，应考虑新增兄弟蓝图，而不是一味把差异硬塞进这里。

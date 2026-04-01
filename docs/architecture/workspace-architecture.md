@@ -1,95 +1,89 @@
-# Workspace Architecture
+# 工作空间架构说明
 
-## Purpose
+## 文档目的
 
-This document describes the current recommended architecture for the `Projectexample` workspace. It is a baseline for continued growth, not a declaration that the workspace is structurally complete.
+本文档用于说明 `DesignExample` 当前推荐的工作空间架构。
 
-## Layer Model
+它描述的是**当前可持续使用的结构基线**，不是永久固定不变的最终形态。
 
-### 1. Factory Layer
+## 四层结构模型
 
-The factory layer governs the whole repository:
+### 1. 工厂层（Factory Layer）
 
-- root documents
-- engineering standards
-- methodology notes
-- catalog entries
-- reusable scripts
-- long-term architecture decisions
+用于治理整个仓库的根级资产，包括：
 
-Typical locations:
+- 根级说明文档
+- 工程标准
+- 方法论
+- 模板目录
+- 辅助脚本
+- 关键决策记录
+
+典型位置：
 
 - `README.md`
 - `AGENTS.md`
 - `PROJECT_STANDARDS.md`
 - `TEMPLATE_FACTORY_METHOD.md`
+- `Prompt.md`
+- `Plan.md`
+- `Documentation.md`
 - `docs/`
 - `scripts/`
 
-### 2. Blueprint Layer
+### 2. 蓝图层（Blueprint Layer）
 
-The blueprint layer captures reusable starter architecture for future projects. A blueprint should define:
+用于定义可复用的起始结构与项目边界，包括：
 
-- recommended backend and frontend structure
-- shared baseline capabilities
-- extension points
-- setup assumptions
-- documentation that explains how the blueprint is expected to evolve
+- 基础管理端蓝图
+- 后端/前端结构建议
+- 扩展点说明
+- 启动与初始化建议
 
-Typical location:
+典型位置：
 
 - `blueprints/base-admin-template/`
 
-### 3. Project Layer
+### 3. 项目层（Project Layer）
 
-The project layer contains runnable examples or generated systems based on a blueprint.
+用于承载具体项目实例，包括：
 
-Typical location:
+- 基础底座项目 `projects/00-base-admin`
+- 深化中的重点项目
+- 强化脚手架状态的种子项目
 
-- `projects/00-base-admin/`
-- future additions such as `projects/student-management/`
+### 4. 模块层（Module Layer）
 
-Projects should stay aligned with shared standards, but they may add topic-specific modules and docs.
+用于承载具体业务模块。
 
-### 4. Module Layer
+模块层当前存在于各个项目内部，随着重复模式逐渐稳定，未来可进一步向共享层或蓝图层抽取。
 
-The module layer is where reusable or project-specific business modules live over time. In the current baseline, this layer exists mainly as design intent and extension space. As patterns mature, module packages can be extracted into shared assets or future blueprint variants.
+## 当前目录边界
 
-Examples of likely future module areas:
+### shared 与 project 的边界
 
-- students and classes
-- library borrow/return
-- exam banks and papers
-- product and inventory
-- blogs, CMS content, and forums
+放入 `shared/` 的内容应满足以下至少一项：
 
-## Current Structure Boundaries
+- 面向多个项目复用
+- 属于共用工程约定
+- 属于共享检查清单或共享说明
+- 未来很可能进一步演化为共享代码资产
 
-### Shared vs Project-Specific
+放入项目目录的内容应满足以下特点：
 
-Use `shared/` for assets that are expected to influence multiple templates:
+- 当前仍然偏业务化
+- 尚未成熟到共享抽取
+- 需要在具体项目内先验证
 
-- naming rules
-- response conventions
-- auth conventions
-- CRUD patterns
-- environment/config specs
-- validation checklist
-- current UI patterns
-- module design notes
+### blueprint 与 shared 的边界
 
-Keep project-local items inside a concrete project when they are still experimental or too business-specific to standardize cleanly.
+- `blueprints/` 负责“项目如何起步”
+- `shared/` 负责“项目应遵循什么共性规则”
 
-### Blueprint vs Shared
-
-Use `blueprints/` when the asset explains or provides a reusable project skeleton.
-
-Use `shared/` when the asset is a cross-cutting rule, convention, or candidate for later extraction.
-
-## Recommended Current Top-Level Structure
+## 当前推荐根级结构
 
 ```text
-Projectexample/
+DesignExample/
 ├─ docs/
 │  ├─ architecture/
 │  ├─ guides/
@@ -103,60 +97,64 @@ Projectexample/
 ├─ blueprints/
 │  └─ base-admin-template/
 └─ projects/
-   └─ 00-base-admin/
+   ├─ 00-base-admin/
+   ├─ student-management/
+   ├─ library-management/
+   └─ ...
 ```
 
-Additional folders may be added later when they solve a real organizational problem. The current layout is intended to be stable enough for growth without pretending to be permanently exhaustive.
+## 当前扩展策略
 
-## Extension Strategy
+### 扩展点 A：新增模板类别
 
-### Extension Point A: New Template Families
+新增模板类别时，应先补充模板目录，再决定它：
 
-Add new entries to the catalog first, then decide whether they can start from the base admin blueprint or need a sibling blueprint.
+- 是否可直接从 `base-admin-template` 派生
+- 是否需要形成新的兄弟蓝图
 
-### Extension Point B: Shared Capabilities
+### 扩展点 B：共享能力抽取
 
-When a capability appears repeatedly across projects, consider moving it into:
+当多个项目重复出现同一类模式时，可考虑继续抽取：
 
-- shared conventions
-- a richer blueprint
-- a future extracted shared module
+- 共享表单 / 表格 / 弹窗模式
+- 共享 API 客户端模式
+- 共享权限与菜单模式
+- 共享数据库初始化规则
 
-### Extension Point C: Tooling and Scripts
+### 扩展点 C：脚本与自动化
 
-As template creation becomes more repetitive, `scripts/` can accumulate:
+后续可继续增强：
 
-- naming validators
-- project bootstrappers
-- checklist generators
-- quality gates
+- 命名校验
+- 项目生成
+- 检查清单生成
+- 一致性巡检
 
-### Extension Point D: Additional Blueprints
+## 当前真实项目状态
 
-Future sibling blueprints may include:
+### 已较深实现并已验证
 
-- `blueprints/base-mobile-friendly-template/`
-- `blueprints/base-content-platform-template/`
-- `blueprints/base-exam-template/`
+- `00-base-admin`
+- `student-management`
+- `library-management`
+- `exam-system`
 
-Each blueprint should reuse as much of the shared baseline as practical.
+### 已强化但仍以脚手架为主
 
-## Architecture Decisions in the Current Baseline
+- `mall-system`
+- `blog-cms-forum`
+- `hotel-booking`
+- `hr-payroll-attendance`
+- `course-learning-platform`
+- `property-rental-dorm`
+- `erp-inventory-sales`
 
-| Decision | Current Direction |
-|----------|-------------------|
-| Backend stack | Spring Boot 3, Java 17 target, MyBatis-Plus, JWT, Knife4j-ready |
-| Frontend stack | Vue 3, TypeScript, Vite, Element Plus, Pinia, Vue Router |
-| Auth baseline | JWT + RBAC skeleton with menu and action extension points |
-| Project form | Backend and frontend live together under each concrete project folder |
-| Reuse rule | Extract when patterns repeat or clearly belong to the factory baseline |
+## 有意保留的扩展空间
 
-## Intentional Open Space
+以下内容仍保留为未来空间：
 
-The following areas are intentionally left open for future refinement:
-
-- richer shared module extraction
-- code generators beyond the current starter script
-- more advanced auth policies such as tenant isolation or data permissions
-- multiple blueprint families for specialized template types
-- archive/deprecation handling for older templates
+- 新蓝图类别
+- 更深层的共享模块抽取
+- 端到端运行验证脚本
+- 浏览器级烟雾测试
+- 更细粒度的项目生成与初始化自动化

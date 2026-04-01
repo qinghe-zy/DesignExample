@@ -1,5 +1,5 @@
-# UI Patterns
+# 界面模式说明
 
-`shared/ui-patterns/` captures reusable current-baseline UI patterns for future admin-style templates.
+`shared/ui-patterns/` 用于描述当前管理端项目中可复用的界面模式。
 
-The current focus is on patterns that are common enough to guide multiple templates without forcing premature component extraction.
+这些内容暂以文档说明为主，后续若模式稳定，可继续抽取为共享组件。

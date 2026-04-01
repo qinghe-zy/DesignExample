@@ -1,138 +1,126 @@
-# How To Create a New Template
+# 如何创建一个新模板
 
-## Purpose
+## 文档目的
 
-This guide describes the current recommended way to add a new template project to the factory while keeping the workspace reusable and maintainable.
+本文档说明在当前模板工厂中，如何以一致、可维护、可扩展的方式创建新模板项目。
 
-## Before You Create Anything
+## 开始之前先看什么
 
-Check these sources first:
+创建新模板前，建议先阅读：
 
-1. [template-catalog.md](/D:/Projectexample/docs/catalog/template-catalog.md)
-2. [workspace-architecture.md](/D:/Projectexample/docs/architecture/workspace-architecture.md)
-3. [shared naming rules](/D:/Projectexample/shared/conventions/naming-rules.md)
-4. [base-admin-template README](/D:/Projectexample/blueprints/base-admin-template/README.md)
+1. `docs/catalog/template-catalog.md`
+2. `docs/architecture/workspace-architecture.md`
+3. `shared/conventions/naming-rules.md`
+4. `blueprints/base-admin-template/README.md`
 
-The goal is to reuse first and specialize second.
+原则始终是：**先复用，后特化**。
 
-## Recommended Creation Flow
+## 推荐创建流程
 
-### Step 1: Define the Template Family
+### 第一步：确认模板类别
 
-Document:
+先明确：
 
-- working name
-- likely users
-- common business modules
-- which parts are shared with the current baseline
-- which parts look specific enough to stay project-local at first
+- 项目名称
+- 目标用户
+- 主要业务模块
+- 哪些能力可直接继承基础底座
+- 哪些能力仍需保留在项目本地
 
-If the family is missing from the catalog, add it as a new seed entry instead of treating it as an untracked one-off.
+如果属于新类别，应先更新模板目录，而不是直接生成一个“未登记项目”。
 
-### Step 2: Decide the Starting Point
+### 第二步：选择起点
 
-Use `blueprints/base-admin-template` when the new project still fits the current admin baseline:
+如果项目仍属于管理端系统，优先从 `blueprints/base-admin-template` 起步。
 
-- login
+它默认提供：
+
+- 登录
 - RBAC
-- dashboard
-- management tables/forms
-- one or more standard CRUD modules
+- 仪表盘
+- 用户 / 角色 / 菜单
+- 通用 CRUD 页面范式
 
-If the new template needs a very different interaction model, document the reason and consider creating a sibling blueprint later rather than forcing the mismatch into the base admin shape.
+### 第三步：初始化项目目录
 
-### Step 3: Initialize the Project Folder
+项目目录统一放在 `projects/` 下，名称使用小写 kebab-case。
 
-Use lowercase kebab-case under `projects/`.
+示例：
 
-Examples:
+- `student-management`
+- `library-management`
+- `exam-system`
 
-- `projects/student-management`
-- `projects/library-management`
-- `projects/exam-system`
+### 第四步：继承基础模块
 
-You can use [create-template.ps1](/D:/Projectexample/scripts/create-template.ps1) to create the standard directory shell for a new project.
+新模板通常应保留以下基线能力：
 
-### Step 4: Carry Over the Baseline Modules
+- 登录 / 登出
+- 当前用户
+- 用户管理
+- 角色管理
+- 菜单管理
+- 仪表盘
+- 至少一个共享 CRUD 范式
 
-A new template should usually inherit:
+### 第五步：逐步加入业务模块
 
-- auth flow
-- user management
-- role management
-- menu management
-- dashboard
-- one shared CRUD pattern
+不要一次性把所有业务模块全部灌进去。
 
-These provide a stable administrative base and reduce repeated setup work.
+建议顺序：
 
-### Step 5: Add Business Modules Incrementally
+1. 先实现 1 个代表业务模块
+2. 同步数据库与文档
+3. 验证当前实现
+4. 再继续扩展其余模块
 
-Do not dump every planned module into the first commit.
+### 第六步：记录可复用模式
 
-Prefer:
+如果项目内出现很可能在其他项目重复出现的模式，应记录为：
 
-1. one representative business module
-2. documentation and schema update
-3. validation of reuse decisions
-4. then additional modules
+- 共享规范候选
+- 蓝图增强候选
+- 派生项目推进清单中的复用步骤
 
-### Step 6: Record Reuse Candidates
+### 第七步：验证
 
-If a project introduces a pattern that may appear elsewhere, document it in `shared/` or mark it in project docs as a future extraction candidate.
+一个新模板至少应尽量验证：
 
-Examples:
+- 后端构建
+- 后端测试
+- 前端安装
+- 前端构建
+- 数据库初始化
+- 启动说明是否真实可用
 
-- reusable upload policy
-- reusable form layout sections
-- reusable dictionary or status enum handling
-- reusable statistics cards
+## 当前建议的项目状态分级
 
-### Step 7: Verify Before Calling It a Baseline
+### 1. 强化脚手架状态
 
-At minimum, verify:
+至少应具备：
 
-- backend runs
-- frontend runs
-- login succeeds
-- dashboard loads
-- representative CRUD works
-- SQL init script is usable
-- startup instructions are accurate
+- 项目 README
+- 后端/前端 README
+- 模块说明
+- 扩展说明
+- SQL/schema 基线
+- 代表模块骨架
 
-## Current Do / Do Not Guidance
+### 2. 可运行派生项目状态
 
-### Do
+除脚手架状态外，还应具备：
 
-- keep naming semantic
-- inherit the current standards unless there is a documented reason to diverge
-- update the catalog and docs when introducing a new family
-- leave room for future modules
+- 后端构建可通过
+- 前端构建可通过
+- 数据库初始化可执行
+- 最好具备测试上下文验证
 
-### Do Not
+## 何时应新增蓝图而不是继续复用基础管理端蓝图
 
-- create topic-specific one-off architectures without justification
-- rename shared concepts differently in every project
-- over-abstract immature modules too early
-- treat the first version of a template as the finished end-state
+当多个项目持续朝同一方向偏离基础底座时，应考虑新蓝图，例如：
 
-## Template Creation Checklist
+- 内容平台类蓝图
+- 移动优先类蓝图
+- 考试引擎类蓝图
 
-- create the project folder
-- add backend and frontend skeletons
-- preserve auth/dashboard/system baseline
-- add the first business module
-- add SQL init scripts
-- write project README
-- record extension points
-- note anything that should later move into `shared/` or a blueprint
-
-## When To Create a New Blueprint Instead
-
-Create or propose a new blueprint when several templates are drifting away from the current base admin pattern in the same direction, for example:
-
-- content-heavy portal systems
-- mobile-first student interaction systems
-- exam engines with specialized workflow and scheduling
-
-That way the factory evolves through deliberate blueprint growth rather than scattered project exceptions.
+这样可以避免把所有差异都硬塞回基础管理端底座中。

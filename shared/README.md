@@ -1,22 +1,18 @@
-# Shared Assets
+# shared
 
-`shared/` contains reusable conventions, design notes, and future extraction candidates that inform multiple templates.
+`shared/` 用于存放跨项目复用的规范、说明、检查清单与可继续抽取的共性资产。
 
-The current baseline is document-heavy on purpose. As the factory grows, some shared content may also become code modules, starter packages, or generators.
+## 当前内容分类
 
-## Current Areas
+- `conventions/`：命名、响应、认证、CRUD、结构等共性规范
+- `specs/`：环境、验证、派生推进等操作性说明
+- `ui-patterns/`：当前管理端常用界面模式说明
+- `notes/`：模块设计与复用判断说明
 
-- `conventions/`: naming, API, auth, CRUD, and structure guidance
-- `specs/`: environment/config and validation specifications
-- `ui-patterns/`: reusable current-baseline admin UI patterns
-- `notes/`: design notes and reusable module-thinking references
+## 后续可能继续扩展
 
-## Intended Growth Direction
-
-Future additions may include:
-
-- shared DTO/VO contracts
-- shared SQL snippets
-- shared frontend component patterns
-- shared backend utility libraries
-- shared quality or review checklists
+- 共享 DTO / VO 约定
+- 共享 SQL 片段
+- 共享前端组件模式
+- 共享后端工具类
+- 更强的自动化检查清单

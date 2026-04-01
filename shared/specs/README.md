@@ -1,5 +1,9 @@
-# Shared Specs
+# 共享说明清单
 
-`shared/specs/` holds reusable specifications that are more operational than narrative conventions.
+`shared/specs/` 用于放置更偏操作性的共享说明文档，例如：
 
-The current baseline uses this area for environment/config guidance and validation expectations. Future additions may include API contracts, seed-data rules, or generator input specs.
+- 环境与配置规则
+- 验证清单
+- 派生项目推进清单
+
+它们比一般说明文档更接近执行规则与检查步骤。

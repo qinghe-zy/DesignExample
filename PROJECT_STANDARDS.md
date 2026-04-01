@@ -1,344 +1,202 @@
-\# PROJECT\_STANDARDS.md
+# PROJECT_STANDARDS.md
 
+## 1. 仓库定位
 
+本仓库是一个长期维护的模板工厂，不是一次性 demo 集合。
 
-\## 1. Repository Positioning
+所有项目模板都应遵循统一的工程标准，以便：
 
-This repository is a long-term template factory, not a one-off demo collection.
+- 可复用
+- 可扩展
+- 可按主题重命名
+- 可持续演进
+- 维护成本可控
 
+本文档描述的是**当前基线**，不是永久封闭的最终标准。
 
+## 2. 根级结构约定
 
-All project templates must follow unified engineering standards so they can be:
+推荐的当前根级结构包括但不限于：
 
-\- reused
+- `docs/`：方法论、架构、指南、目录、演进说明
+- `scripts/`：辅助脚本、初始化脚本、生成脚本
+- `shared/`：共享规范、共享说明、后续可抽取的共用资产
+- `blueprints/`：可复用蓝图与基础模板
+- `projects/`：具体项目实例
+- `archive/`：如后续确有必要，可放归档或实验性内容
 
-\- extended
+允许后续继续增加根级目录，但必须有清晰理由。
 
-\- renamed for different topics
+## 3. 命名规范
 
-\- evolved over time
+- 目录统一使用小写 kebab-case
+- 名称必须具备明确语义
+- 避免 `demo1`、`test2`、`final-final` 这类模糊命名
 
-\- maintained with low cost
+业务项目目录示例：
 
+- `student-management`
+- `library-management`
+- `exam-system`
+- `mall-system`
 
+## 4. 后端规范
 
-The standards in this document define the current baseline, not a permanently closed final state.
+默认保持：
 
+- Java 17
+- Spring Boot 3
+- MyBatis-Plus
+- Maven
 
+后端分层至少应包含：
 
-\## 2. Root Structure Convention
+- `controller`
+- `service`
+- `service.impl`
+- `mapper`
+- `entity`
+- `dto`
+- `vo`
+- `config`
+- `common`
+- `exception`
+- `security`
 
-Recommended root structure includes, but is not limited to:
+要求：
 
+- 使用统一响应包装
+- 使用统一异常处理
+- 控制器不承载业务逻辑
+- 验证策略清晰
+- 配置支持环境区分
+- SQL 组织清晰
+- 预留未来模块扩展点
 
+## 5. 前端规范
 
-\- docs/                 methodology, decisions, guides, future expansion docs
+默认保持：
 
-\- scripts/              helper scripts, setup scripts, generators
+- Vue 3 + TypeScript + Vite
+- Element Plus
+- Pinia
+- Vue Router
 
-\- shared/               reusable shared assets and common definitions
+前端结构至少应包含：
 
-\- blueprints/           reusable project blueprints / starter templates
+- `api/`
+- `views/`
+- `components/`
+- `stores/`
+- `router/`
+- `utils/`
+- `hooks/`
 
-\- projects/             concrete generated template projects
+要求：
 
-\- archive/              optional deprecated or experimental items
+- 管理端页面风格保持一致
+- 表格/表单/弹窗模式在合理时应抽取共性
+- 避免巨型单文件组件
+- 共享模式应为后续组件抽取预留空间
 
+## 6. 认证与权限规范
 
+每个模板默认都应准备：
 
-Additional folders may be introduced later if justified.
+- 登录
+- 登出
+- 当前用户信息
+- 基于角色的权限控制（RBAC）
+- 基于菜单的路由控制
+- 操作级权限扩展点
 
-Do not assume the current top-level folder set is final forever.
+## 7. 通用能力基线
 
+业务模板默认可继承以下基础能力：
 
+- 认证
+- 用户管理
+- 角色管理
+- 菜单管理
+- 仪表盘
+- 通用 CRUD 页面
+- 搜索 / 筛选 / 分页
+- 文件上传扩展点
+- 操作日志扩展点
+- 导出扩展点
+- 图表 / 统计扩展点
 
-\## 3. Naming Convention
+该能力列表未来可继续扩展，不应被视为封闭清单。
 
-\- Use lowercase kebab-case for folders
+## 8. 数据库规范
 
-\- Use clear semantic names
+- 表命名清晰
+- 合理保留 `create_time`、`update_time`、`deleted`
+- 避免为学生项目做过度设计
+- SQL 初始化脚本必须提供
+- 种子数据应可控且可解释
+- schema 设计应预留业务扩展空间
 
-\- Avoid vague names like demo1, test2, final-final
+## 9. 文档规范
 
-\- Business template folder examples:
+每个重要资产至少应有对应说明文档。
 
-&#x20; - student-management
+最少包括：
 
-&#x20; - library-management
+- 根级 README
+- 蓝图说明
+- 项目启动说明
+- 模块说明
+- 数据库或表结构说明
+- 扩展说明
 
-&#x20; - exam-system
+文档要求：
 
-&#x20; - mall-system
+- 说明当前真实状态
+- 区分“当前已实现”与“后续可扩展”
+- 不把仓库描述成已经最终完成
+- 保持中文优先
 
+## 10. 复用规范
 
+新增代码前必须先判断它应属于：
 
-When future template categories are added, naming should still remain consistent and semantic.
+- `shared/`
+- 蓝图层
+- 项目本地模块
 
+如果某项能力很可能会出现在多个项目中，应优先抽取或至少记录为共享候选。
 
+## 11. 代码质量规范
 
-\## 4. Backend Standards
+- 可读性优先
+- 稳定性优先
+- 复用性优先
+- 避免无意义复杂度
+- 避免硬编码魔法值
+- 合理减少重复 CRUD 模式
+- 注释应有信息量，不要噪声式注释
 
-\- Java 17
+## 12. 交付标准
 
-\- Spring Boot 3
+一个项目若要达到最小合格状态，至少应具备：
 
-\- Maven multi-module is allowed if needed, but keep it understandable
+- 可构建或可运行的前端
+- 可构建或可运行的后端
+- 启动说明
+- 数据库初始化脚本
+- 基础认证流程
+- 至少一个代表性业务模块
+- 已说明的扩展点
 
-\- Layered structure:
+## 13. 演进规范
 
-&#x20; - controller
+本仓库会持续演进，因此：
 
-&#x20; - service
+- 标准可能继续迭代
+- 目录结构可能继续扩展
+- 共享能力可能继续抽取
+- 蓝图层可能继续细分
+- 模板类别可能继续增加
 
-&#x20; - service.impl
-
-&#x20; - mapper
-
-&#x20; - entity
-
-&#x20; - dto
-
-&#x20; - vo
-
-&#x20; - config
-
-&#x20; - common
-
-&#x20; - exception
-
-&#x20; - security
-
-
-
-Requirements:
-
-\- unified response wrapper
-
-\- unified exception handling
-
-\- clear validation strategy
-
-\- config separated by environment
-
-\- avoid business logic inside controller
-
-\- avoid SQL scattering without structure
-
-\- prefer generic reusable base services where appropriate
-
-\- reserve clean extension points for future module growth
-
-
-
-\## 5. Frontend Standards
-
-\- Vue 3 + TypeScript + Vite
-
-\- Element Plus as primary admin UI library
-
-\- Pinia for state management
-
-\- Vue Router for routing
-
-\- api/, views/, components/, stores/, router/, utils/, hooks/ must be clearly separated
-
-\- reusable table/form/dialog patterns should be abstracted when reasonable
-
-\- avoid oversized single-file components
-
-\- keep admin pages visually consistent
-
-\- shared patterns must remain open for future component extraction
-
-
-
-\## 6. Auth and Permission Standards
-
-Every template should be prepared for:
-
-\- login
-
-\- logout
-
-\- current user info
-
-\- role-based access control
-
-\- menu-based route control
-
-\- operation-level permission extension points
-
-
-
-Permission design should remain extensible for future project categories.
-
-
-
-\## 7. Common Capability Baseline
-
-Every business template should be able to inherit these capabilities:
-
-\- authentication
-
-\- user management
-
-\- role management
-
-\- menu management
-
-\- dashboard
-
-\- generic CRUD pages
-
-\- search/filter/pagination
-
-\- file upload
-
-\- operation logs
-
-\- export extension points
-
-\- chart/statistics extension points
-
-
-
-This baseline may expand over time.
-
-Do not design it as a closed list.
-
-
-
-\## 8. Database Standards
-
-\- use clear table naming rules
-
-\- include create/update time and logical delete fields where reasonable
-
-\- avoid overdesigned schema
-
-\- keep schema understandable for student projects
-
-\- SQL init scripts must be provided
-
-\- seed data should be controlled and documented
-
-\- schema should leave room for future business-table expansion
-
-
-
-\## 9. Documentation Standards
-
-Every major asset should have documentation.
-
-
-
-At minimum:
-
-\- root README
-
-\- blueprint guide
-
-\- project startup guide
-
-\- business module summary
-
-\- table design summary
-
-\- extension guide
-
-
-
-Documentation must:
-
-\- distinguish current baseline from future possibilities
-
-\- avoid wording that implies the repository is finished
-
-\- leave room for new templates, new modules, and new standards revisions
-
-
-
-\## 10. Reuse Standards
-
-Before adding new code, check whether it should belong in:
-
-\- shared/
-
-\- base blueprint
-
-\- project local module
-
-
-
-If something is likely to appear in multiple academic systems, extract it.
-
-
-
-If something may become reusable later but is not yet mature, document it as a candidate rather than forcing premature abstraction.
-
-
-
-\## 11. Code Quality Standards
-
-\- readable first
-
-\- stable first
-
-\- reusable first
-
-\- avoid unnecessary complexity
-
-\- avoid hard-coded magic values
-
-\- avoid duplicated CRUD patterns when abstraction is reasonable
-
-\- keep comments useful, not noisy
-
-\- keep future extension easier than short-term shortcuts
-
-
-
-\## 12. Delivery Standards
-
-A template is considered minimally qualified only if it has:
-
-\- runnable frontend
-
-\- runnable backend
-
-\- startup instructions
-
-\- db init script
-
-\- base auth flow
-
-\- at least one representative business module
-
-\- documented extension points
-
-
-
-\## 13. Change and Evolution Standards
-
-This repository is expected to evolve.
-
-
-
-Therefore:
-
-\- standards may be refined later
-
-\- folder structure may be extended later
-
-\- shared capabilities may be extracted later
-
-\- additional blueprint levels may appear later
-
-\- new template categories may be added later
-
-
-
-When making changes, prefer forward-compatible structure and wording.
-
-Do not write standards as a frozen end-state.
-
+所有修改都应优先考虑前向兼容，而不是把当前状态写死。

@@ -1,72 +1,61 @@
-# Decisions
+# DECISIONS
 
-## Current Architectural Decisions
+## 当前已确认的工程决策
 
-### D-001: Establish docs/shared/blueprints/projects as the current core factory layout
+### D-001：仓库继续维持 `docs/ + shared/ + blueprints/ + projects/` 结构
 
-Reason:
+原因：
 
-- matches the repo’s own standards
-- separates governance, reusable baseline assets, and concrete projects cleanly
-- leaves room for future folders without implying closure
+- 该结构已经支撑了模板工厂、蓝图、共享规范、项目实例四层职责
+- 当前结构清晰、可扩展，不需要为了本轮中文化而重排目录
 
-### D-002: Use one runnable base admin as the first proof-of-baseline project
+### D-002：`00-base-admin` 继续作为共享基础底座
 
-Reason:
+原因：
 
-- proves the shared conventions in code
-- avoids mass-producing inconsistent demos
-- gives future templates a concrete reference point
+- 已完成验证，是最稳定的可运行参考实现
+- 三个重点项目已经基于它派生，继续保留有利于统一认证、系统管理与仪表盘底座
 
-### D-003: Keep MySQL as the default target while allowing a lightweight local dev path
+### D-003：本地数据库统一采用 `designexample_*` 命名规则
 
-Reason:
+原因：
 
-- aligns with the requested stack baseline
-- reduces setup friction for validation in unattended local runs
+- 能避免与机器上已有数据库冲突
+- 便于一眼识别数据库与项目之间的归属关系
+- 便于后续脚本化初始化
 
-### D-004: Prefer documentation-first shared assets before premature code extraction
+### D-004：三个重点项目优先做到“构建通过 + 连库验证 + 文档完整”
 
-Reason:
+原因：
 
-- the factory is still forming
-- shared code abstractions should follow repeated use, not guesswork
+- 这是当前仓库最值得优先交付给评审者查看的部分
+- 在同一轮中把 10 个项目全部推进到同等运行深度，会明显降低质量
 
-### D-005: Keep the fixed seed project folder names exactly as requested
+### D-005：其余七个项目维持“强化脚手架状态”
 
-Reason:
+原因：
 
-- the unattended run has an explicit fixed initial seed list
-- stable folder names make future script automation and review easier
-- no technical reason was found to rename any of the requested seed folders
+- 当前它们已经具有代表模块、启动说明、继承说明、SQL 基线
+- 这比空脚手架更有价值，但仍诚实地低于重点项目深度
 
-### D-006: Use inline PowerShell generation when execution policy blocks direct script invocation
+### D-006：文档冲突一律以仓库真实状态为准
 
-Reason:
+原因：
 
-- the environment blocks direct `.ps1` execution
-- the repository still benefits from having a reusable script checked in for later operators
-- using equivalent inline logic allowed the unattended run to continue without lowering repo quality
+- 旧文档和旧交接记录可能落后于当前实现
+- 本轮目标之一就是让所有文档重新收敛到真实状态
 
-### D-007: Derive the top three seed projects from the validated 00-base-admin baseline
+### D-007：文档文件名保持英文，内容改为中文
 
-Reason:
+原因：
 
-- it preserves auth/system/dashboard consistency across the highest-priority derivatives
-- it reduces the risk of architectural drift while still allowing project-specific business modules
-- it is the fastest safe path to materially deeper implementations in an unattended continuation run
+- 文件名稳定有利于路径兼容、脚本引用和历史链接不失效
+- 本轮主要目标是内容中文化与状态统一，不是做文件名本地化重命名
 
-### D-008: Keep the remaining seven seeds lighter than the top three, but stronger than documentation-only scaffolds
+### D-008：MySQL profile 配置只面向本地开发验证
 
-Reason:
+原因：
 
-- the continuation run explicitly prioritizes the top three projects
-- spreading full runnable implementation across all ten projects at once would reduce overall quality
-- representative backend/frontend module files plus startup and inheritance docs leave the remaining seeds in a concrete next-step state
-
-### D-009: Extract a reusable derived-project promotion checklist after repeating the same validation and carryover steps across top-three derivatives
-
-Reason:
-
-- the continuation run surfaced a stable repeated pattern for seed promotion
-- documenting it once in `shared/` improves future consistency without forcing premature code abstraction
+- 本轮需要验证本地数据库初始化与连接
+- 不应把本地口令硬编码进生产导向配置
+- 使用环境变量占位最符合当前需求

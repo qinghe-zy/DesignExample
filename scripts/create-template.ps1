@@ -33,19 +33,19 @@ $readmePath = Join-Path $projectPath "README.md"
 $readme = @"
 # $normalizedName
 
-This project was initialized from the current Projectexample template factory structure.
+该项目已基于当前 Projectexample 模板工厂结构完成基础初始化。
 
-## Suggested Next Steps
+## 建议下一步
 
-1. Review ../../blueprints/base-admin-template
-2. Add backend and frontend code using the current baseline
-3. Add SQL initialization files under ./sql
-4. Document business modules and extension points under ./docs
+1. 阅读 ../../blueprints/base-admin-template
+2. 按当前基础底座补充后端和前端代码
+3. 在 ./sql 下补充数据库初始化文件
+4. 在 ./docs 下补充模块说明与扩展说明
 
-## Notes
+## 说明
 
-- This project shell is intentionally minimal so future template families can specialize from the shared baseline.
-- Update this README as the template gains concrete business meaning.
+- 当前目录壳层刻意保持精简，便于后续从共享底座继续派生。
+- 当项目具备明确业务含义后，应继续更新本 README。
 "@
 
 Set-Content -Path $readmePath -Value $readme -Encoding UTF8

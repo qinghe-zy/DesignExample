@@ -1,23 +1,13 @@
-﻿# Module Summary
+# 模块说明
 
-## Recommended Current Modules
+## 当前规划模块
 
-- products
-- categories
-- orders
-- customers
-- inventory
+- 商品目录、订单、客户、库存
 
-## Inheritance From Shared Base
+## 当前代表模块
 
-- inherit auth and RBAC from the base admin template
-- inherit dashboard shell and system baseline modules
-- reuse the current CRUD page conventions
-- keep topic-specific naming inside project-local business modules
+- 商品目录模块
 
-## Suggested First Implementation Order
+## 说明
 
-1. preserve login/dashboard/system baseline
-2. implement the first representative business module
-3. add reporting, import/export, and advanced workflows only after the core CRUD path is stable
-
+当前模块说明用于明确推进方向，不应被误解为“全部已实现”。

@@ -1,23 +1,19 @@
-# Module Summary
+# 模块说明
 
-## Recommended Current Modules
+## 当前已实现模块
 
-- books
-- categories
-- shelves
-- borrow records
-- overdue reminders
+- 图书目录
+- 读者管理
+- 借还记录
 
-## Inheritance From Shared Base
+## 与基础底座的关系
 
-- inherit auth and RBAC from the library management template
-- inherit dashboard shell and system baseline modules
-- reuse the current CRUD page conventions
-- keep topic-specific naming inside project-local business modules
+- 认证与权限基线继续继承自 `00-base-admin`
+- 系统管理模块继续继承自 `00-base-admin`
+- 当前项目主要负责图书流转业务扩展
 
-## Suggested First Implementation Order
+## 当前推进建议
 
-1. preserve login/dashboard/system baseline
-2. implement the first representative business module
-3. add reporting, import/export, and advanced workflows only after the core CRUD path is stable
-
+1. 在现有借还流转上补足预约与逾期管理
+2. 再增加罚金、库存审计、条码支持等能力
+3. 稳定后再考虑抽取共享模式

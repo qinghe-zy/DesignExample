@@ -1,59 +1,34 @@
-# Auth And RBAC Conventions
+# 认证与 RBAC 规范
 
-## Current Baseline
+## 当前基线
 
-The current baseline uses:
+当前仓库默认采用：
 
-- JWT for authentication
-- role-based access control
-- menu-based navigation control
-- operation-level permission extension points
+- JWT 认证
+- 角色权限控制（RBAC）
+- 菜单控制路由
+- 预留操作级权限扩展点
 
-## Minimum Auth Flow
+## 最小认证流程
 
-1. user submits username and password
-2. backend validates credentials
-3. backend issues JWT token
-4. frontend stores token and fetches current user data
-5. protected APIs require a valid bearer token
+1. 用户提交用户名和密码
+2. 后端校验身份
+3. 后端签发 JWT
+4. 前端保存 token 并获取当前用户信息
+5. 受保护接口通过 Bearer Token 校验
 
-## Role Model
+## 角色与菜单模型
 
-Current baseline assumptions:
+当前建议具备：
 
-- one user can have at least one primary role
-- roles carry permission meaning
-- menus can be filtered or tagged by role/permission
+- 用户拥有角色
+- 角色承载权限意义
+- 菜单记录可驱动侧边栏和权限路由
 
-This can later evolve into richer mappings such as many-to-many user-role relations or data-scope policies.
+## 后续扩展方向
 
-## Menu And Permission Model
-
-Current menu fields should be able to support:
-
-- sidebar menus
-- nested navigation
-- route path
-- permission code
-- sort order
-- icon hints
-
-Operation permissions should remain easy to extend, for example:
-
-- `sys:user:view`
-- `sys:user:edit`
-- `biz:notice:create`
-
-## Logout
-
-The current baseline treats logout as a client token clear plus future server-side invalidation extension space.
-
-## Future Extension Space
-
-Likely future additions:
-
-- refresh tokens
-- multi-role aggregation
-- department/data permissions
-- tenant isolation
-- login audit trail
+- Refresh Token
+- 多角色聚合
+- 数据权限
+- 部门权限
+- 租户隔离

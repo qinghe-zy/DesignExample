@@ -1,47 +1,29 @@
-# CRUD Page Conventions
+# CRUD 页面规范
 
-## Purpose
+## 当前推荐页面结构
 
-These conventions keep management pages consistent across future templates.
+一个典型管理页面通常应包含：
 
-## Recommended Page Composition
+- 页面标题与用途说明
+- 筛选 / 搜索区域
+- 操作工具栏
+- 列表 / 表格区域
+- 分页
+- 新增 / 编辑弹窗
 
-A standard CRUD page should usually include:
+## 当前交互约定
 
-- page title and short purpose line
-- filter/search area
-- action toolbar
-- table or list area
-- pagination
-- create/edit dialog or drawer
+- 搜索条件应可重置
+- 危险操作应二次确认
+- 表单验证前后端都要做
+- 状态字段展示方式尽量统一
 
-## Current Interaction Pattern
+## 复用目标
 
-- search state should be explicit and resettable
-- primary actions should stay near the filter area
-- destructive actions should require confirmation
-- form validation should happen on both frontend and backend
+随着项目继续演进，以下模式值得继续抽取：
 
-## Form Suggestions
-
-- keep labels clear and short
-- group related fields together
-- use selects for bounded status/category values
-- reserve rich text or upload areas only when the module actually needs them
-
-## Table Suggestions
-
-- include stable key fields
-- show status values consistently
-- keep action columns predictable
-- avoid overly dense tables for beginner-maintainable templates
-
-## Reuse Targets
-
-As the workspace grows, these elements are strong candidates for shared frontend extraction:
-
-- filter toolbar wrapper
-- table card shell
-- status tag renderer
-- dialog form scaffolding
-- pagination binding helper
+- 搜索工具栏容器
+- 表格卡片容器
+- 状态标签渲染
+- 弹窗表单骨架
+- 分页绑定助手

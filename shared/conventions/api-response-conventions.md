@@ -1,8 +1,8 @@
-# API Response Conventions
+# 接口响应规范
 
-## Current Baseline Shape
+## 当前统一响应结构
 
-Backend APIs in the current factory baseline should return a unified wrapper:
+后端接口统一返回：
 
 ```json
 {
@@ -12,20 +12,14 @@ Backend APIs in the current factory baseline should return a unified wrapper:
 }
 ```
 
-Recommended meanings:
+推荐含义：
 
-- `code = 0`: success
-- non-zero code: business or validation failure
+- `code = 0`：成功
+- 非 `0`：业务失败、验证失败或异常失败
 
-## Why This Baseline Exists
+## 分页结构
 
-- keeps frontend integration predictable
-- makes exception handling consistent
-- avoids every module inventing a different response format
-
-## Pagination Shape
-
-For list pages, prefer:
+列表类接口推荐使用：
 
 ```json
 {
@@ -36,23 +30,8 @@ For list pages, prefer:
 }
 ```
 
-This is simple enough for student project scope while staying reusable across future templates.
+## 设计目的
 
-## Error Handling
-
-Prefer:
-
-- global exception handling for unexpected failures
-- validation error summaries that are easy for frontend forms to show
-- explicit business messages for user-facing failures such as bad credentials or missing records
-
-## Future Growth
-
-This convention can later expand to include:
-
-- trace identifiers
-- localization keys
-- warning payloads
-- field-level validation payloads
-
-The current baseline stays intentionally small so adoption remains easy.
+- 方便前端统一处理
+- 降低不同项目之间的接口差异
+- 保持学生项目可理解、可维护

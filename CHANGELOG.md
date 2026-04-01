@@ -1,69 +1,59 @@
-# Changelog
+# CHANGELOG
 
-## 2026-04-01
+## 2026-04-01 初始阶段
 
-### Added
+### 已新增
 
-- root durable memory files for unattended execution
-- root README and required factory docs
-- shared conventions and notes
-- shared specs and UI pattern notes
-- base admin blueprint documentation
-- runnable `projects/00-base-admin`
-- all ten fixed initial seed project folders with README, module summary, extension notes, and SQL/schema baseline
-- richer seed scaffolds for `student-management`, `library-management`, and `exam-system`
+- 根级治理文件与过程记忆文件
+- 模板工厂总览文档
+- 共享规范、蓝图说明、种子项目目录
+- `00-base-admin` 可运行基础底座
+- 10 个固定种子项目
 
-### Validation
+### 已验证
 
-- backend package succeeded
-- backend test context succeeded
-- frontend dependency install succeeded
-- frontend production build succeeded with a chunk-size warning
+- `00-base-admin` 后端构建与测试
+- `00-base-admin` 前端安装与构建
 
-### In Progress
+## 2026-04-01 深化阶段
 
-- remote configuration and optional push by a later operator
+### 已新增
 
-## 2026-04-01 Continuation
+- `student-management` 重点派生实现
+- `library-management` 重点派生实现
+- `exam-system` 重点派生实现
+- 其余 7 个项目的强化脚手架与代表模块
+- 派生项目推进清单 `shared/specs/derived-project-promotion-checklist.md`
 
-### Added
+### 已验证
 
-- derived business modules for `student-management`
-- derived business modules for `library-management`
-- derived business modules for `exam-system`
-- backend/frontend representative module scaffolds for the remaining seven seed projects
-- startup guides and inheritance notes for the remaining seven seed projects
-- `shared/specs/derived-project-promotion-checklist.md`
+- 三个重点项目后端构建与测试
+- 三个重点项目前端安装与构建
 
-### Validation
+## 2026-04-01 最终清理与中文化阶段
 
-- top three seed backends built successfully with `mvn -q clean -DskipTests package`
-- top three seed backend test contexts passed with `mvn -q test`
-- top three seed frontends installed successfully with `npm.cmd install`
-- top three seed frontends built successfully with `npm.cmd run build`
+### 已完成
 
-### Notes
+- 全仓库主要对外文档中文化
+- 根级文档、项目文档、蓝图文档、共享文档状态统一
+- 修复文档中的过时描述、错误路径、复制残留
+- 完善 `.gitignore`
+- 配置远程 `origin`
+- 推送到 GitHub 远程：
+  - `origin/codex/bootstrap-template-factory`
+  - `origin/main`
 
-- top three seed frontends still emit large bundle-size warnings during Vite production builds
-- the remaining seven seeds are materially advanced but intentionally lighter than the top three
+### 数据库相关
 
-## 2026-04-01 Git And Database Finalization
+- 创建全部本地 `designexample_*` 数据库
+- 导入 4 个重点数据库项目的完整 MySQL 初始化脚本
+- 导入其余 7 个项目的 schema 基线
+- 为 4 个重点后端项目补充 `application-mysql.yml`
+- 修复 MySQL 不兼容的 `CLOB` 类型
+- 验证 4 个重点后端项目在 MySQL profile 下可启动测试上下文
 
-### Added
+### 当前仍保留的注意事项
 
-- expanded `.gitignore` coverage for multi-project workspace hygiene
-- MySQL profile configuration for `00-base-admin`, `student-management`, `library-management`, and `exam-system`
-
-### Database
-
-- created local MySQL databases under the `designexample_*` convention
-- imported project SQL for all relevant projects
-- verified schema presence across all initialized databases
-- verified representative seed data for the four most complete database-backed projects
-- verified Spring test context startup against MySQL profile for the four most complete backend projects
-
-### Git Delivery
-
-- improved `.gitignore` for workspace-generated artifacts and local overrides
-- configured `origin` as `https://github.com/qinghe-zy/DesignExample.git`
-- pushed the completed repository state to both `origin/codex/bootstrap-template-factory` and `origin/main`
+- 三个重点项目尚未做浏览器/API 端到端烟雾测试
+- 其余 7 个项目仍是强化脚手架，不是同等深度的可运行项目
+- 部分前端项目仍有 chunk size 警告，但构建成功

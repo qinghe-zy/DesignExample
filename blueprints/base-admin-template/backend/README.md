@@ -1,6 +1,6 @@
-# Backend Blueprint Structure
+# 后端蓝图说明
 
-## Current Recommended Structure
+## 当前推荐结构
 
 ```text
 backend/
@@ -19,27 +19,24 @@ backend/
 ├─ src/main/resources/
 │  ├─ application.yml
 │  ├─ schema.sql
-│  └─ data.sql
+│  ├─ data.sql
+│  └─ application-mysql.yml（如需要本地 MySQL profile）
 └─ pom.xml
 ```
 
-## Baseline Capabilities
+## 当前能力基线
 
-- unified API response
-- global exception handling
-- JWT parsing and auth context
-- user, role, and menu module skeletons
-- dashboard overview endpoint
-- representative CRUD business module
+- 统一响应包装
+- 全局异常处理
+- JWT 认证解析
+- 系统管理模块
+- 仪表盘接口
+- 至少一个代表业务模块
 
-## Current Extension Points
+## 扩展点
 
-- file upload service and storage strategy
-- operation log persistence
-- richer statistics and chart queries
-- dictionary/config module extraction
-- multi-role or data-scope security enhancements
-
-## Notes
-
-Keep controllers thin, services readable, and DTO/VO naming explicit. Avoid mixing business rules into configuration or controller classes.
+- 文件上传
+- 操作日志
+- 图表统计
+- 数据字典
+- 更复杂的数据权限

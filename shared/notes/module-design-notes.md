@@ -1,48 +1,28 @@
-# Module Design Notes
+# 模块设计说明
 
-## Purpose
+## 设计目标
 
-This note captures the current thinking for designing reusable business modules in future templates.
+模块设计应兼顾：
 
-## Current Module Heuristics
+- 当前项目实现
+- 后续复用可能
+- 可维护性
+- 对学生项目复杂度的可控性
 
-### Extract Early When
+## 何时应优先抽取
 
-- the capability is already reused across multiple template families
-- the workflow is stable
-- naming can stay business-neutral
+当一个模块或模式满足以下条件之一时，应考虑抽取：
 
-### Keep Local Longer When
+- 已出现在多个项目中
+- 命名已能脱离具体业务主题
+- 逻辑较稳定
 
-- the module still depends on topic-specific wording
-- the flow is not mature enough to standardize
-- forcing reuse would introduce confusing abstraction
+## 何时应暂留本地
 
-## Typical Module Shape
+当一个模块仍然：
 
-A future module usually includes:
+- 强依赖具体业务命名
+- 仍处在尝试阶段
+- 强行抽取会增加理解成本
 
-- database table or tables
-- entity and mapper
-- service and controller
-- list/search page
-- create/edit form
-- route/menu entry
-- summary documentation
-
-## Strong Reuse Candidates
-
-- attachments/upload hooks
-- dictionaries/status options
-- audit trail stubs
-- export hooks
-- dashboard cards
-
-## Intentional Open Space
-
-This note is a starting point. Future revisions may add:
-
-- module scoring for reuse maturity
-- extraction criteria
-- dependency rules between modules
-- naming policies for shared business packages
+则先保留在项目内部更合适。

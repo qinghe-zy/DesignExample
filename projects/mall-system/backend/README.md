@@ -1,13 +1,14 @@
-# Backend Scaffold
+# 后端说明
 
-This backend scaffold follows the current layered factory baseline for Mall System.
+## 当前状态
 
-## First Representative Module
+当前后端处于强化脚手架阶段，已具备：
 
-- ProductCatalog
+- 分层目录
+- 一个代表业务模块骨架
+- 后续继续接入基础底座所需的位置预留
 
-## Current Expectation
+## 当前建议
 
-- preserve controller/service/entity/dto/vo/mapper layering
-- reuse auth, dashboard, user, role, and menu from 00-base-admin when implementation begins
-- keep SQL naming consistent with shared conventions
+- 先继承 00-base-admin 的认证、系统管理和统一异常处理
+- 再逐步把业务模块从骨架推进为真实实现

@@ -1,26 +1,17 @@
-# Form / Table / Dialog Patterns
+# 表单 / 表格 / 弹窗模式
 
-## Current Baseline Pattern
+## 当前模式
 
-Most management pages should compose around:
+管理端页面的常见组合是：
 
-- filter bar
-- action toolbar
-- table container
-- pagination
-- create/edit dialog
+- 筛选栏
+- 操作栏
+- 表格
+- 分页
+- 新增/编辑弹窗
 
-## Why This Pattern Is Useful
+## 价值
 
-- familiar for admin systems
-- reusable across many academic management modules
-- easy to scale from one CRUD module to many
-
-## Current Extension Space
-
-Future shared extraction may include:
-
-- search form wrappers
-- dialog form state helpers
-- column metadata patterns
-- shared empty-state components
+- 便于多个项目共享交互节奏
+- 便于新人理解
+- 便于后续做共用组件抽取

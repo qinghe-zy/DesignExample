@@ -1,13 +1,3 @@
-# Implementation Roadmap
+# 推进路线
 
-## Why This Seed Is Higher Priority
-
-Student Management has one of the strongest reuse profiles in the initial catalog, so it should be among the first fully derived templates after the base admin project is accepted.
-
-## Recommended Build Path
-
-1. copy the base admin system baseline
-2. rename and wire the first business module
-3. add representative business statistics to the dashboard
-4. only then add topic-specific advanced workflows
-
+当前项目已经从基础底座成功派生，后续应优先补充考勤、宿舍、统计等模块，并在业务稳定后抽取可复用模式。

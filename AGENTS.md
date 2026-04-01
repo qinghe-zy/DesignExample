@@ -1,391 +1,145 @@
-\# AGENTS.md
+# AGENTS.md
 
+## 使命
 
+你当前工作的根仓库是 `Projectexample`（远程仓库名为 `DesignExample`）。
 
-\## Mission
+该仓库不是单一业务项目，而是一个可长期演进、可复用、可扩展的**学术类项目模板工厂**。
 
-You are operating inside the root workspace: `Projectexample`.
+它的目标是持续支撑多种课程设计、毕业设计、教学管理类系统的创建、维护与演进，而不是一次性堆出若干互不相关的 demo。
 
+## 自主执行模式
 
+你应以自主执行模式工作：
 
-This repository is not a single business project.
+- 不等待重复确认
+- 不提出不必要的澄清问题
+- 在需求不完整时做最小且合理的工程假设
+- 显式记录假设、权衡和风险
+- 优先保证可维护性、可扩展性、可复用性
 
-It is a long-term, reusable, extensible \*\*academic project template factory\*\*.
+## 核心优先级
 
+1. 先理解现状，再决定修改
+2. 先维护共享底座，再扩展具体项目
+3. 先保证一致性，再追求广度
+4. 任何重要决策都要体现在仓库文档中
 
+## 默认工作顺序
 
-Its purpose is to support the continuous creation, maintenance, and evolution of multiple course-design / graduation-project templates over time.
+每次开始新一轮工作时，默认按以下顺序推进：
 
+### 阶段 1：检查
 
+- 检查当前目录结构
+- 检查已有文件和文档
+- 判断是否存在过时文档、错误引用、结构漂移
+- 记录环境信息、假设和潜在风险
 
-This workspace is expected to grow.
+### 阶段 2：治理
 
-You must assume:
+维护根级治理与说明文件，包括但不限于：
 
-\- more templates may be added later
+- README
+- docs/
+- scripts/
+- blueprints/
+- shared/
+- projects/
+- 模板目录与扩展规则
+- 命名规范
+- 交付与验证规范
+- 演进策略
 
-\- existing blueprints may evolve later
+### 阶段 3：共享底座
 
-\- shared modules may expand later
+优先建设可复用内容：
 
-\- folder structure and documentation should leave room for future additions
+- 后端/前端基础蓝图
+- 共享规范
+- 共用模块设计说明
+- 项目创建规则
+- 未来模块与未来项目类别的扩展点策略
 
+### 阶段 4：项目推进
 
+在共享底座足够稳定后，再推进具体项目：
 
-Your job is to build and maintain a clean, scalable foundation rather than a one-time closed set of templates.
+- `00-base-admin` 作为基础底座项目
+- 高复用优先级的重点种子项目
+- 其余项目先达到强化脚手架状态，再逐步深化
 
+### 阶段 5：汇报与收口
 
+每个重要阶段结束后，都要更新：
 
-\## Autonomous Execution Mode
+- 当前完成内容
+- 当前真实状态
+- 当前验证结果
+- 剩余风险
+- 后续建议
 
-You must work in autonomous execution mode:
+## 不可妥协的规则
 
-\- do not wait for repeated confirmations
+- 不能把仓库做成杂乱的项目合集
+- 不能假定当前模板集已经封顶
+- 不能在没有充分理由时让不同项目采用不同架构
+- 必须优先复用，再做个性化
+- 共享能力在合理时必须抽取
+- 优先使用清晰的分层结构，不走花哨捷径
+- 所有生成内容必须可被人类继续维护
+- 文档不得写成“仓库已经最终完成”的语气
 
-\- do not ask unnecessary clarification questions
+## 技术基线
 
-\- make reasonable engineering decisions by yourself
+默认技术栈保持统一：
 
-\- document assumptions explicitly
+- 后端：Java 17、Spring Boot 3、MyBatis-Plus、MySQL、JWT、Knife4j
+- 前端：Vue 3、TypeScript、Vite、Element Plus、Pinia、Vue Router
+- API 风格：RESTful
+- 数据交换：JSON
+- 权限基线：JWT + RBAC
 
-\- prioritize maintainability, extensibility, and reuse over short-term completeness
+如果后续需要调整，必须优先保证整体一致性，而不是为单个项目随意漂移。
 
+## 交付质量要求
 
+所有新增或修改内容都应满足：
 
-\## Primary Goals
+- 结构清晰
+- 命名一致
+- 文档可读
+- 便于扩展
+- 便于复用
+- 便于后续人工接手
 
-1\. Build a stable root-level engineering foundation first.
+## 文档要求
 
-2\. Establish shared standards, shared modules, shared scripts, and shared documentation.
+仓库文档应始终满足：
 
-3\. Create reusable base blueprints rather than one-off demos.
+- 中文优先
+- 面向工程协作，而非宣传文案
+- 先写当前真实状态，再写后续扩展空间
+- 不写空泛口号
+- 不把当前结构描述成永久最终形态
 
-4\. Make the workspace ready for continuous future template growth.
+## 自我修正规则
 
-5\. Ensure each future project can be created, evolved, and maintained in a standardized way.
+如果发现以下问题，应立即停下并修复：
 
+- 文档与代码状态不一致
+- 路径、命名或模块引用存在复制残留
+- 多个项目之间出现明显架构漂移
+- 文档语言与风格混乱
+- 共享内容应抽取却仍分散重复
 
+## 输出风格
 
-\## Working Mode
+完成一个工作周期后，至少应明确说明：
 
-When starting work, always follow this order:
-
-
-
-\### Phase 1: Inspect
-
-\- inspect current directory structure
-
-\- inspect existing files
-
-\- identify missing foundations
-
-\- identify whether current docs are too rigid or future-hostile
-
-\- record assumptions if requirements are incomplete
-
-
-
-\### Phase 2: Establish Root Governance
-
-Create and maintain root-level governance files and structure, including but not limited to:
-
-\- README
-
-\- docs/
-
-\- scripts/
-
-\- blueprints/
-
-\- shared/
-
-\- projects/
-
-\- template catalog
-
-\- project creation rules
-
-\- development conventions
-
-\- naming conventions
-
-\- delivery checklist
-
-\- evolution policy
-
-
-
-\### Phase 3: Build Reusable Foundation
-
-Create reusable assets first:
-
-\- base backend blueprint
-
-\- base frontend blueprint
-
-\- shared UI / utility / configuration conventions
-
-\- shared module design notes
-
-\- template creation rules
-
-\- extension-point strategy for future modules and future project categories
-
-
-
-\### Phase 4: Create Initial Runnable Base Template
-
-Create one minimal but runnable base template project that proves:
-
-\- frontend and backend can run
-
-\- login / auth / RBAC skeleton exists
-
-\- dashboard exists
-
-\- generic CRUD flow exists
-
-\- shared standards are applied
-
-
-
-This initial runnable template is a starting point, not the final form of the whole workspace.
-
-
-
-\### Phase 5: Report
-
-After each major step, update documentation and output:
-
-\- what was created
-
-\- what assumptions were made
-
-\- what remains next
-
-\- what can be reused
-
-\- what is intentionally left open for future expansion
-
-
-
-\## Non-Negotiable Rules
-
-\- Never turn the repo into a pile of unrelated demos.
-
-\- Never assume the current initial template set is final.
-
-\- Never create inconsistent projects with different architectures without strong justification.
-
-\- Reuse first, specialize second.
-
-\- Shared capabilities must be extracted whenever reasonable.
-
-\- Prefer clear, layered architecture over clever shortcuts.
-
-\- Prefer conventions and templates over copy-paste.
-
-\- All generated content must remain editable and understandable by humans.
-
-\- Every important decision must be reflected in documentation.
-
-\- Documentation must not be written as if the workspace is already complete.
-
-
-
-\## Technology Baseline
-
-Default stack for templates:
-
-\- Backend: Java 17, Spring Boot 3, MyBatis-Plus, MySQL, JWT, Knife4j
-
-\- Frontend: Vue 3, TypeScript, Vite, Element Plus, Pinia, Vue Router
-
-\- Build tools: Maven for backend, npm/pnpm for frontend
-
-\- API style: RESTful
-
-\- Data exchange: JSON
-
-\- Auth baseline: JWT + RBAC
-
-
-
-If details need to evolve later, preserve overall stack consistency unless there is a strong engineering reason.
-
-
-
-\## Scope Control
-
-At the current stage, do NOT directly build many business templates in full.
-
-
-
-First build:
-
-\- root workspace structure
-
-\- root docs
-
-\- template methodology
-
-\- shared standards
-
-\- base admin blueprint
-
-\- initial catalog seeds for future templates
-
-\- one runnable base admin example
-
-
-
-Business templates should be added incrementally after the foundation is stable.
-
-
-
-\## Initial Template Seeds
-
-This workspace should be ready for initial template seeds such as:
-
-\- student management
-
-\- library management
-
-\- online exam system
-
-\- mall / e-commerce
-
-\- blog / cms / forum
-
-\- hotel booking
-
-\- hr / payroll / attendance
-
-\- course / learning platform
-
-\- property / dorm / rental management
-
-\- erp / inventory / sales
-
-
-
-These are examples of likely initial categories, not a closed final list.
-
-
-
-\## Skills Usage
-
-This environment may contain many skills/tools.
-
-Use them proactively when they clearly improve:
-
-\- repo planning
-
-\- code quality
-
-\- architecture
-
-\- frontend polish
-
-\- documentation
-
-\- validation
-
-But do not overcomplicate the repo by using tools blindly.
-
-
-
-\## Deliverable Quality
-
-Everything created must be:
-
-\- structured
-
-\- documented
-
-\- reusable
-
-\- easy to extend
-
-\- consistent in naming
-
-\- consistent in code style
-
-\- suitable for long-term template accumulation
-
-
-
-\## Evolution Principle
-
-Design every major asset with future growth in mind:
-
-\- docs should support future sections
-
-\- catalog should support new categories
-
-\- scripts should support future project generation
-
-\- blueprints should support future refinement
-
-\- shared modules should allow later extraction and expansion
-
-
-
-Avoid wording or structure that implies the current state is final.
-
-
-## Documentation Flexibility Rule
-All root documentation must be written with open-ended structure.
-Use wording and headings that allow future sections, future templates, future scripts, and future standards revisions to be appended naturally.
-
-Avoid documentation that assumes:
-- the current project list is exhaustive
-- the current folder structure is permanently final
-- the current blueprint set is complete
-- the current standards are the last revision
-
-
-
-\## Autonomy Boundary
-
-Autonomous execution means:
-
-\- proceed without repeated confirmation for normal engineering decisions
-
-\- create missing docs, structure, and scaffolds proactively
-
-\- choose sane defaults when requirements are incomplete
-
-
-
-But it does NOT mean:
-
-\- introducing unnecessary frameworks
-
-\- rewriting the whole workspace without reason
-
-\- mass-producing business templates before the foundation is stable
-
-\- adding fancy but low-value complexity
-
-\- freezing future evolution through rigid documentation or closed structure
-
-
-
-\## Output Style
-
-When finishing a work cycle, summarize with:
-
-1\. current progress
-
-2\. files/folders created
-
-3\. key engineering decisions
-
-4\. next recommended step
-
-5\. risks or unresolved assumptions
-
-6\. future extension space intentionally left open
-
+1. 当前进展
+2. 本轮新增/修改的文件或目录
+3. 关键工程决策
+4. 建议下一步
+5. 风险或未决问题
+6. 有意保留的未来扩展空间

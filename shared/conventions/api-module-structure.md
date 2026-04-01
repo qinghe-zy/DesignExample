@@ -1,34 +1,35 @@
-# API Module Structure Guide
+# 前后端分层结构规范
 
-## Backend Layering
+## 后端分层
 
-The current backend baseline separates:
+后端当前建议包含：
 
-- `controller`: request entry and response composition
-- `service`: business contract
-- `service.impl`: business implementation
-- `mapper`: persistence access
-- `entity`: persistence model
-- `dto`: request payloads
-- `vo`: response payloads
-- `config`: framework and infrastructure configuration
-- `common`: shared response, pagination, and base model support
-- `exception`: global error handling
-- `security`: auth parsing and security context support
+- `controller`
+- `service`
+- `service.impl`
+- `mapper`
+- `entity`
+- `dto`
+- `vo`
+- `config`
+- `common`
+- `exception`
+- `security`
 
-## Frontend Layering
+## 前端分层
 
-The current frontend baseline separates:
+前端当前建议包含：
 
-- `api/`: HTTP request wrappers
-- `views/`: route-level pages
-- `components/`: reusable presentation pieces
-- `stores/`: Pinia state
-- `router/`: route configuration and guards
-- `utils/`: storage and formatting helpers
-- `layouts/`: app shell and navigation structure
-- `styles/`: theme variables and shared layout styles
+- `api/`
+- `views/`
+- `components/`
+- `stores/`
+- `router/`
+- `utils/`
+- `hooks/`
+- `layouts/`
+- `styles/`
 
-## Rule Of Thumb
+## 判断规则
 
-If a feature needs to be understood or replaced independently, it probably deserves its own layer file instead of being pushed into a giant component or controller.
+如果一个能力需要被单独理解、单独替换、单独维护，那它就不应被塞进巨大的单文件或巨大的控制器里。

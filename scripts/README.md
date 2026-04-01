@@ -1,17 +1,23 @@
-# Scripts
+# scripts
 
-This folder contains helper scripts that support repeatable workspace and project initialization.
+`scripts/` 用于存放辅助初始化与生成脚本相关说明。
 
-The current scripts are intentionally lightweight. They aim to reduce setup friction without freezing the factory into a rigid generator too early.
+## 当前脚本
 
-## Current Scripts
+- `create-template.ps1`：用于初始化一个新模板项目的基础目录壳
 
-- [create-template.ps1](/D:/Projectexample/scripts/create-template.ps1): creates the current standard directory shell for a new project under `projects/`
+## 当前注意事项
 
-More scripts may be added later for:
+在当前 Windows 环境中，PowerShell 执行策略可能阻止直接执行 `.ps1`。
 
-- naming validation
-- checklist generation
-- quality gates
-- blueprint synchronization
-- project bootstrap automation
+因此：
+
+- 脚本本身保留在仓库中，便于后续人工或自动化调用
+- 若当前环境禁止直接执行，可临时采用等价命令或调整执行策略
+
+## 后续可继续增加
+
+- 命名校验脚本
+- 初始化检查脚本
+- 一致性巡检脚本
+- 批量数据库初始化脚本
