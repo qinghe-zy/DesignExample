@@ -26,6 +26,9 @@
 - continuation run materially deepened `student-management`, `library-management`, and `exam-system`
 - the remaining seven seed projects now contain backend/frontend representative module scaffolds, startup notes, and inheritance notes
 - extracted a reusable promotion checklist at `shared/specs/derived-project-promotion-checklist.md`
+- `.gitignore` was expanded for multi-project Java/Vue/Node workspace hygiene
+- `origin` now targets `https://github.com/qinghe-zy/DesignExample.git`
+- local MySQL databases were created for all eleven project contexts using the `designexample_*` naming convention
 
 ## Validation Results
 
@@ -47,6 +50,11 @@
 - `npm.cmd install` in `projects/exam-system/frontend`: success
 - `npm.cmd run build` in `projects/exam-system/frontend`: success with a chunk-size warning
 - structure sanity checks confirmed backend/frontend representative module scaffolds for the remaining seven seeds
+- `mysql -h localhost -P 3306 -u root -p123456 -e "SHOW DATABASES;"`: success
+- local MySQL imports succeeded for all eleven `designexample_*` databases
+- table-count verification succeeded across all initialized databases
+- representative seed-data verification succeeded for `designexample_base_admin`, `designexample_student_management`, `designexample_library_management`, and `designexample_exam_system`
+- backend test contexts succeeded against MySQL profile for `00-base-admin`, `student-management`, `library-management`, and `exam-system`
 
 ## Important Commands
 
@@ -62,7 +70,7 @@
 - npm reported 2 moderate vulnerabilities after dependency install; no fix was applied automatically in this run to avoid surprise dependency churn
 - `student-management`, `library-management`, and `exam-system` are materially implemented and build-validated, but not yet smoke-tested through browser/API interaction
 - the remaining seven seeds are materially stronger than empty scaffolds, but they are not yet promoted to runnable depth
-- no git remote is configured, so push could not be attempted in this run
+- GitHub push status still pending final push attempt in this run
 
 ## Installed Or Configured Tooling
 
@@ -72,10 +80,9 @@
 
 ## Next State
 
-1. add a git remote if this repository should be pushed
-2. push `codex/bootstrap-template-factory` after remote configuration
-3. review `student-management`, `library-management`, and `exam-system` in real local runs with browser/API smoke checks
-4. choose which of the remaining seven seeds should be promoted next, with `mall-system`, `blog-cms-forum`, `course-learning-platform`, and `erp-inventory-sales` as the strongest follow-up candidates
+1. push `codex/bootstrap-template-factory` and visible delivery branch to GitHub
+2. review `student-management`, `library-management`, and `exam-system` in real local runs with browser/API smoke checks
+3. choose which of the remaining seven seeds should be promoted next, with `mall-system`, `blog-cms-forum`, `course-learning-platform`, and `erp-inventory-sales` as the strongest follow-up candidates
 
 ## Git State
 

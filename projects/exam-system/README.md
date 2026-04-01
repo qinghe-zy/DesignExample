@@ -16,19 +16,30 @@ Representative business modules currently implemented: Question Bank, Exam Paper
 
 ### Backend
 
-`powershell
+```powershell
 cd D:\Projectexample\projects\exam-system\backend
 mvn -q clean -DskipTests package
 mvn spring-boot:run
-` 
+```
+
+Optional MySQL-profile verification:
+
+```powershell
+$env:MYSQL_HOST='localhost'
+$env:MYSQL_PORT='3306'
+$env:MYSQL_USERNAME='root'
+$env:MYSQL_PASSWORD='123456'
+$env:SPRING_PROFILES_ACTIVE='mysql'
+mvn -q test
+```
 
 ### Frontend
 
-`powershell
+```powershell
 cd D:\Projectexample\projects\exam-system\frontend
 npm.cmd install
 npm.cmd run dev
-` 
+```
 
 Default backend URL: http://localhost:8083
 Default frontend URL: http://localhost:5183
@@ -36,6 +47,7 @@ Default frontend URL: http://localhost:5183
 ## Validation Commands
 
 - mvn -q clean -DskipTests package
+- mvn -q test
 - npm.cmd install
 - npm.cmd run build
 

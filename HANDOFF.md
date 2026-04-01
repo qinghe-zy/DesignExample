@@ -10,6 +10,8 @@
 - all ten fixed seed project folders exist with README, module summary, extension notes, and SQL/schema baseline
 - the three highest-priority seeds now have materially deeper backend/frontend/sql implementations
 - the remaining seven seeds now include backend/frontend module scaffolds, startup guidance, and inheritance notes
+- local MySQL databases have been initialized for all project contexts using the `designexample_*` naming convention
+- the four most complete backend projects can start their Spring test context against MySQL
 
 ## What Is Runnable Now
 
@@ -28,6 +30,7 @@ Current validated commands:
 - `mvn -q test`
 - `npm.cmd install`
 - `npm.cmd run build`
+- `SPRING_PROFILES_ACTIVE=mysql mvn -q test` with local MySQL environment variables for the four most complete backend projects
 
 ## What Is Partially Implemented
 
@@ -69,6 +72,11 @@ These are the strongest derived implementations in this continuation run.
 - library-management frontend install/build: success with chunk-size warning
 - exam-system backend package/test: success
 - exam-system frontend install/build: success with chunk-size warning
+- 00-base-admin backend MySQL-profile test context: success
+- student-management backend MySQL-profile test context: success
+- library-management backend MySQL-profile test context: success
+- exam-system backend MySQL-profile test context: success
+- all `designexample_*` MySQL databases created and table-verified locally
 
 ## Known Issues
 
@@ -76,6 +84,7 @@ These are the strongest derived implementations in this continuation run.
 - npm reported 2 moderate vulnerabilities after install; they were not auto-fixed during this run
 - the top three derivatives still need browser/API smoke checks to claim end-to-end runtime verification
 - the remaining seven seeds are still scaffold-first rather than runnable
+- push result is still pending the final GitHub push attempt in this run
 
 ## Git Status And Push
 
@@ -93,9 +102,9 @@ Git was initialized during this run.
   - `c882e5c` feat: strengthen remaining seed project scaffolds
   - `69b2dcf` docs: sync continuation handoff state
 
-Push was not attempted because no git remote is configured in this repository.
+Remote `origin` is configured as `https://github.com/qinghe-zy/DesignExample.git`.
 
-If a remote should be added later, the next operator can run:
+If a later manual push is still needed, the next operator can run:
 
 ```powershell
 cd D:\Projectexample

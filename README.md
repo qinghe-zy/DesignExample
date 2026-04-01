@@ -17,6 +17,10 @@ This repository currently provides:
 
 The baseline is intentionally open-ended. More blueprints, shared modules, and concrete projects can be added later without treating the current layout as a fixed final state.
 
+## Current Delivery Branch
+
+The current delivery branch is `codex/bootstrap-template-factory`. If a remote is configured, this branch can be pushed directly or promoted onto `main` for repository visibility.
+
 ## Recommended Current Structure
 
 ```text
@@ -54,6 +58,24 @@ The first three layers are established in this run. The module layer is intentio
 - clear extension points for file upload, operation logs, chart/statistics, and future business modules
 
 It is a starting point for future templates, not a closed final admin system.
+
+## Current Local Database Convention
+
+For local MySQL verification, the current convention is:
+
+- `designexample_base_admin`
+- `designexample_student_management`
+- `designexample_library_management`
+- `designexample_exam_system`
+- `designexample_mall_system`
+- `designexample_blog_cms_forum`
+- `designexample_hotel_booking`
+- `designexample_hr_payroll_attendance`
+- `designexample_course_learning_platform`
+- `designexample_property_rental_dorm`
+- `designexample_erp_inventory_sales`
+
+This avoids collisions with unrelated local databases while keeping project ownership obvious.
 
 ## How New Templates Should Start
 

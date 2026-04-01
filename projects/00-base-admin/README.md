@@ -58,6 +58,17 @@ mvn spring-boot:run
 
 Current default local startup uses an H2 file database for low-friction validation while keeping MySQL initialization assets under `sql/mysql/`.
 
+Optional MySQL-profile verification:
+
+```powershell
+$env:MYSQL_HOST='localhost'
+$env:MYSQL_PORT='3306'
+$env:MYSQL_USERNAME='root'
+$env:MYSQL_PASSWORD='123456'
+$env:SPRING_PROFILES_ACTIVE='mysql'
+mvn -q test
+```
+
 ### Frontend
 
 ```powershell

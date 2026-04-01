@@ -46,3 +46,18 @@
 
 - top three seed frontends still emit large bundle-size warnings during Vite production builds
 - the remaining seven seeds are materially advanced but intentionally lighter than the top three
+
+## 2026-04-01 Git And Database Finalization
+
+### Added
+
+- expanded `.gitignore` coverage for multi-project workspace hygiene
+- MySQL profile configuration for `00-base-admin`, `student-management`, `library-management`, and `exam-system`
+
+### Database
+
+- created local MySQL databases under the `designexample_*` convention
+- imported project SQL for all relevant projects
+- verified schema presence across all initialized databases
+- verified representative seed data for the four most complete database-backed projects
+- verified Spring test context startup against MySQL profile for the four most complete backend projects
