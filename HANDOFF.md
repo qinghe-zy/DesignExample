@@ -59,7 +59,24 @@ The top three seeds have the richest scaffolds in this run, but they are not yet
 
 ## Git Status And Push
 
-Git was initialized during this run. Branch, commit, and push details will be updated after the final git workflow step completes.
+Git was initialized during this run.
+
+- current branch: `codex/bootstrap-template-factory`
+- working tree: clean
+- commits created:
+  - `53f91b4` chore: initialize template factory governance
+  - `15da901` feat: add runnable base admin baseline
+  - `f41d3e6` feat: scaffold initial seed template projects
+
+Push was not attempted because no git remote is configured in this repository.
+
+If a remote should be added later, the next operator can run:
+
+```powershell
+cd D:\Projectexample
+git remote add origin <remote-url>
+git push -u origin codex/bootstrap-template-factory
+```
 
 ## Recommended First Acceptance Checks
 

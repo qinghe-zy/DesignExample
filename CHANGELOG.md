@@ -22,4 +22,4 @@
 
 ### In Progress
 
-- git milestone commits and final handoff update
+- remote configuration and optional push by a later operator
