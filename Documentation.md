@@ -86,3 +86,6 @@
   - `15da901` feat: add runnable base admin baseline
   - `f41d3e6` feat: scaffold initial seed template projects
   - `ed5cd5f` docs: finalize unattended run handoff
+  - `db513c2` docs: refresh final git metadata
+  - `ea90011` feat: deepen top three seed projects
+  - `c882e5c` feat: strengthen remaining seed project scaffolds
