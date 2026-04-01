@@ -61,3 +61,9 @@
 - verified schema presence across all initialized databases
 - verified representative seed data for the four most complete database-backed projects
 - verified Spring test context startup against MySQL profile for the four most complete backend projects
+
+### Git Delivery
+
+- improved `.gitignore` for workspace-generated artifacts and local overrides
+- configured `origin` as `https://github.com/qinghe-zy/DesignExample.git`
+- pushed the completed repository state to both `origin/codex/bootstrap-template-factory` and `origin/main`

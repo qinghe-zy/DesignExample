@@ -29,6 +29,7 @@
 - `.gitignore` was expanded for multi-project Java/Vue/Node workspace hygiene
 - `origin` now targets `https://github.com/qinghe-zy/DesignExample.git`
 - local MySQL databases were created for all eleven project contexts using the `designexample_*` naming convention
+- the completed repository state was pushed to both `origin/codex/bootstrap-template-factory` and `origin/main`
 
 ## Validation Results
 
@@ -55,6 +56,9 @@
 - table-count verification succeeded across all initialized databases
 - representative seed-data verification succeeded for `designexample_base_admin`, `designexample_student_management`, `designexample_library_management`, and `designexample_exam_system`
 - backend test contexts succeeded against MySQL profile for `00-base-admin`, `student-management`, `library-management`, and `exam-system`
+- `git push -u origin codex/bootstrap-template-factory`: success
+- `git push origin codex/bootstrap-template-factory:main`: success
+- `git ls-remote --heads origin`: success and confirmed both `main` and `codex/bootstrap-template-factory` exist on the remote
 
 ## Important Commands
 
@@ -70,7 +74,7 @@
 - npm reported 2 moderate vulnerabilities after dependency install; no fix was applied automatically in this run to avoid surprise dependency churn
 - `student-management`, `library-management`, and `exam-system` are materially implemented and build-validated, but not yet smoke-tested through browser/API interaction
 - the remaining seven seeds are materially stronger than empty scaffolds, but they are not yet promoted to runnable depth
-- GitHub push status still pending final push attempt in this run
+- `git remote show origin` failed once with an SSL/TLS handshake error, but push and `ls-remote` verification still succeeded
 
 ## Installed Or Configured Tooling
 
@@ -80,9 +84,9 @@
 
 ## Next State
 
-1. push `codex/bootstrap-template-factory` and visible delivery branch to GitHub
-2. review `student-management`, `library-management`, and `exam-system` in real local runs with browser/API smoke checks
-3. choose which of the remaining seven seeds should be promoted next, with `mall-system`, `blog-cms-forum`, `course-learning-platform`, and `erp-inventory-sales` as the strongest follow-up candidates
+1. review `student-management`, `library-management`, and `exam-system` in real local runs with browser/API smoke checks
+2. choose which of the remaining seven seeds should be promoted next, with `mall-system`, `blog-cms-forum`, `course-learning-platform`, and `erp-inventory-sales` as the strongest follow-up candidates
+3. optionally create a local `main` branch if you want local branch names to mirror the remote delivery branch
 
 ## Git State
 
@@ -97,3 +101,5 @@
   - `ea90011` feat: deepen top three seed projects
   - `c882e5c` feat: strengthen remaining seed project scaffolds
   - `69b2dcf` docs: sync continuation handoff state
+  - `10a8d09` docs: refresh continuation git summary
+  - `644562f` chore: finalize db verification and delivery hygiene

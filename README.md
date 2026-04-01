@@ -19,7 +19,11 @@ The baseline is intentionally open-ended. More blueprints, shared modules, and c
 
 ## Current Delivery Branch
 
-The current delivery branch is `codex/bootstrap-template-factory`. If a remote is configured, this branch can be pushed directly or promoted onto `main` for repository visibility.
+The current working branch is `codex/bootstrap-template-factory`.
+
+For remote delivery visibility, the completed repository state has also been pushed to `main` on:
+
+- [https://github.com/qinghe-zy/DesignExample.git](https://github.com/qinghe-zy/DesignExample.git)
 
 ## Recommended Current Structure
 
